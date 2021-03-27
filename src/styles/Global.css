@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: 100%;
+}
+
+body {
+  background: var(--platinium);
+}
+
+/* #root {
+    margin: 5px 20px;
+} */
+
+:root {
+  --richBlack: #0d1b2a;
+  --oxfordBlue: #1b263b;
+  --blue: #415a77;
+  --shadowBlue: #778da9;
+  --platinium: #e0e1dd;
+  --shadow: 4px 4px 8px 1px #8e8e8e;
+  --btnShadow: 1px 1px 1px 0px rgb(56, 56, 56);
+  --gray: gray;
+  --Lato: 'Lato', sans-serif;
+  --overlay: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.2329306722689075) 0%,
+    rgba(0, 0, 0, 0.5690651260504201) 30%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}

@@ -1,0 +1,23 @@
+.profileBox {
+    text-align: center;
+    padding: 2em;
+    border-bottom: 2px solid var(--platinium);
+}
+.profilePhoto {
+    width: 6em;
+    width: 6em;
+    margin: 1em;
+}
+.profileName {
+    color: var(--blue);
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.profileJobTitle {
+    color: var(--gray);
+    font-weight: 600;
+    font-size: 0.9em;
+    padding-top: 0.5em;
+}
+

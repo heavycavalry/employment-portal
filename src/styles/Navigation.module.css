@@ -1,0 +1,86 @@
+
+/* SEARCHBAR */
+.searchBar {
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    border-style: none;
+    font-size: 1.1em;
+    cursor: pointer;
+    border: 1px solid rgba(128, 128, 128, 0.445);
+}
+.searchBar::placeholder {
+    color:rgba(128, 128, 128, 0.65);
+}
+.searchIcon {
+    position: absolute;
+    right: 0.5em;
+    top: 0.5em;
+    height: 1.5em;
+    cursor: pointer;
+}
+/* PICTURES */
+.logo {
+    height: 4rem;
+    margin: 2rem;
+}
+.icon {
+    padding: 0.6em 0.5em;
+    width: 3em;
+    height: 3em;
+    cursor: pointer;
+}
+/* DROPDOWN */
+.dropdownBox {
+ margin: 0px 2em;
+ height: 3em;
+ width: 50%;
+ display: flex;
+ flex-direction: column;
+ cursor: pointer;
+ z-index: 1; 
+}
+.dropdownLink {
+    padding: 0.5em;
+    position: relative;  
+    color: white;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-bottom: 2px solid var(--blue);
+}
+.dropdownLink > img {
+    position: absolute;
+    right:15px;
+    top: 15px;
+    height: 0.7em;
+    width: 0.7em;
+}
+.dropdown > ul {
+    list-style-type: none;
+}
+.dropdown > ul > li {
+    padding: 8px;
+    background-color: white;
+    border-bottom: 1px solid rgb(192, 192, 192);
+    color: var(--richBlack);
+    font-family: var(--Lato);
+    text-transform: uppercase;
+}
+.dropdown > ul > li:hover {
+    color: var(--blue);
+    font-weight: 600;
+}
+.dropdown > ul:first-child {
+    border-top: 1px solid rgb(192, 192, 192);
+}
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+}
+.showDropdown {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
+}
