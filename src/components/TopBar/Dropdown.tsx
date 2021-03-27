@@ -6,6 +6,7 @@ class Dropdown extends React.Component {
   state = {
     toggleDown: false,
   }
+  
   render() {
     return (
       <section className={styles.dropdownBox}>
