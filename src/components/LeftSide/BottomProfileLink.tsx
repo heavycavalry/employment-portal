@@ -8,23 +8,19 @@ const Wrapper = styled.div`
   cursor: pointer;
 `
 const Icon = styled.img`
-  height: 1.2em;
-  width: 1.2em;
+height: 1.2em;
+width: 1.2em;
 `
-const PlusIcon = styled.img`
-  padding-top: 0.2em;
-  height: 1.2em;
-  width: 1em;
-`
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 `
 const IconBox = styled.div`
-  margin: 2px;
-  padding: 2px 10px;
-  border-radius: 5px;
+  padding:0.3em 0.4em 0.1em 0.4em;
+  margin:2px;
+  border-radius: 2px;
   background: var(--blue);
   box-shadow: var(--btnShadow);
   transition: linear 0.2s;
@@ -57,19 +53,20 @@ const LeftIcons: FC = () => (
 )
 const RightIcons: FC = () => (
   <Container>
-    <AddUserIcon />
-    <AddPublicationIcon />
+    <ProfileBtn icon={process.env.PUBLIC_URL + '/Icons/user-plus.svg'} description="add new user"/>
+    <ProfileBtn icon={process.env.PUBLIC_URL + '/Icons/plus.svg'} description="add your new publication"/>
   </Container>
 )
 
-const AddUserIcon: FC = () => (
+
+interface IProfileBtn {
+  icon: string
+  description: string
+}
+
+const ProfileBtn: FC<IProfileBtn> = (props) => (
   <IconBox>
-    <Icon src={process.env.PUBLIC_URL + '/Icons/user-plus.svg'} alt="add friend" />
-  </IconBox>
-)
-const AddPublicationIcon: FC = () => (
-  <IconBox>
-    <PlusIcon src={process.env.PUBLIC_URL + '/Icons/plus.svg'} alt="add publication" />
+  <Icon src={props.icon} alt={props.description} />
   </IconBox>
 )
 

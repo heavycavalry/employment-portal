@@ -31,7 +31,7 @@ const RightSideNav: FC = () => (
   </Wrapper>
 )
 
-const Button: FC<IButton> = (props) => {+
+const Button: FC<IButton> = (props) => {
   return (
     <IconBox>
       <img className={styles.icon} src={props.source} alt={props.description} />

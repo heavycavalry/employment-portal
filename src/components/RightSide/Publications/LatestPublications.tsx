@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import img from "../../../Icons/publications.svg"
 
 const TextContainer = styled.div`
   width: 60%;

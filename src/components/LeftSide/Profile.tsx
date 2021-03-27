@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import styles from '../../styles/LeftSide.module.css'
 import BottomProfileLink from './BottomProfileLink'

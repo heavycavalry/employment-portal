@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Profile from './Profile'
 import UnderProfileLinks from './UnderProfileLinks'

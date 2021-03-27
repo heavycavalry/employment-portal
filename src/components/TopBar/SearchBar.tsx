@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import styles from '../../styles/Navigation.module.css'
 
 export const Wrapper = styled.div`
-  min-width: 40%;
+  width: 40%;
   justify-content: center;
   position: relative;
 `
@@ -18,7 +18,7 @@ const SearchBar: FC = () => (
     <img
       onClick={handleClick}
       className={styles.searchIcon}
-      src={process.env.PUBLIC_URL + '/Icons/entities.svg'}
+      src={process.env.PUBLIC_URL + '/Icons/search.svg'}
       alt="search icon"
     />
   </Wrapper>

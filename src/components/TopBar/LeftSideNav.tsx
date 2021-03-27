@@ -1,20 +1,20 @@
-import React, { FC } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import styles from '../../styles/Navigation.module.css'
 import Dropdown from './Dropdown'
 
 export const Wrapper = styled.div`
   width: 30%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
-  position: relative;
+  margin-right: 2em;
 `
 const Logo = styled.img`
-  width: 4em;
+  width: 50px;
+  margin: 2em;
 `
 const HouseIcon = styled.img`
-  width: 2em;
+  width: 25px;
 `
 
 class LeftSideNav extends React.Component {
