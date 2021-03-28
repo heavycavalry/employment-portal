@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import styled from 'styled-components'
 import MenuLink from '../common/MenuLink'
 import { Item } from '../common/MenuLink'
+import { ItemText } from '../common/MenuLink'
 
 const Menu = styled.ul`
 position:absolute;
@@ -11,6 +12,7 @@ margin-top: 8px;
 width: 30%;
 z-index: 2;
 overflow-y: scroll;
+height: 80vh;
 `
 const Title = styled.p`
 color: gray;
@@ -30,7 +32,7 @@ color: var(--opacityGray);
 `
 const InputBox = styled.li`
 text-align: center;
-margin: 0.5em;`
+margin: 1em 0.5em;`
 
 const Photo = styled.img`
 width:3em;
@@ -50,6 +52,18 @@ font-weight: 600;
 color: var(--blue);
 cursor: pointer;
 margin-top:0.2em;
+`
+
+const LogoutBox = styled.div`
+display: flex;
+justify-content: center;
+color: grey;
+font-weight: 600;
+border-top: 2px solid var(--platinium);
+padding:0.5em;`
+
+const LogoutIcon = styled.img`
+margin-right: 0.5em;
 `
 
 const DropdownMenu: FC = () => {
@@ -72,6 +86,7 @@ const DropdownMenu: FC = () => {
             <Account />
             <MenuLink icon={process.env.PUBLIC_URL + '/Icons/privacy.svg'} text="Privacy" />
             <MenuLink icon={process.env.PUBLIC_URL + '/Icons/settings.svg'} text="Settings" />
+            <LogOutLink />
         </Menu>
     )
 }
@@ -86,6 +101,14 @@ const Account: FC = () => {
                 <Button>See profile</Button>
             </Wrapper>
         </Item>)
+}
+
+const LogOutLink: FC = () => {
+    return (
+        <LogoutBox>
+            <LogoutIcon src={process.env.PUBLIC_URL + '/Icons/logout.svg'} />
+            <ItemText>Log out</ItemText>
+        </LogoutBox>)
 }
 
 

@@ -42,7 +42,7 @@ const BottomPublication: FC = () => (
 
 const PublicationText = () => (
   <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, enim.
+    Głupiemu nawet Salomon nie naleje.
   </p>
 )
 
@@ -51,8 +51,7 @@ const Wrapper = styled.div`
 display: flex;`
 const Info = () => (
   <Wrapper>
-    <p>21 Jan 2020</p>
-    <p>Imie i nazwisko</p>
+    <p>21 Jan 1994   </p>
   </Wrapper>
 )
 

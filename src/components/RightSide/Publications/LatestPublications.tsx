@@ -2,13 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 
 const TextContainer = styled.div`
+margin: 1em;
   width: 60%;
   overflow-y: scroll;
 `
 
 const LatestPublications = () => (
   <TextContainer>
-    <Publication/>
+    <Publication />
   </TextContainer>
 )
 
@@ -19,27 +20,25 @@ class Publication extends React.Component {
     surname: 'Kiepski',
   }
   render() {
-  return (
-    <div>
-      <PublicationTopInfo/> 
-      <PublicationBottomInfo/>
-    </div>
-  )
-}
+    return (
+      <div>
+        <PublicationTopInfo />
+        <PublicationBottomInfo />
+      </div>
+    )
+  }
 }
 
 const PublicationTopInfo = () => {
   return (
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
-      eveniet sunt, voluptatem dolorem quibusdam eos!
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudanti. Lorem ipsum dolor sit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudanti. Lorem ipsum dolor sit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudanti. Lorem ipsum dolor sit.
     </p>
   )
 }
 
 const PublicationBottomInfo = () => {
-  return (<div><p>01:01:01</p>
-  <p>Ferdek</p></div>)
+  return (<div><p>12:11</p></div>)
 }
 
 export default LatestPublications
