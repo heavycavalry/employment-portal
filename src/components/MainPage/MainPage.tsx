@@ -8,7 +8,11 @@ require('../../styles/Global.css')
 const MainContainer = styled.div`
 width: 100%;
 display: flex;
-justify-content: space-between;`
+justify-content: space-between;
+@media (max-width: 900px) {
+    flex-wrap:wrap;
+    justify-content:center;
+  }`
 
 export class MainPage extends React.Component {
   render() {
@@ -17,7 +21,7 @@ export class MainPage extends React.Component {
         <TopBar />
         <MainContainer>
           <LeftSide />
-          <RightSide/>
+          <RightSide />
         </MainContainer>
       </>
     )

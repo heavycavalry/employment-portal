@@ -11,8 +11,13 @@ const Wrapper = styled.div`
   box-shadow: 4px 4px 8px 1px #8e8e8e;
   flex-direction: column;
   justify-content: center;
-  min-width: 20em;
-`
+  width: 20em;
+  @media (max-width: 900px) {
+    border-right: 6px solid var(--blue);
+    border-left: 6px solid var(--blue);
+    width: 25em;
+  }`
+
 class Profile extends React.Component {
   state = {
     photo: 'https://www.linkpicture.com/q/photo_10.png',

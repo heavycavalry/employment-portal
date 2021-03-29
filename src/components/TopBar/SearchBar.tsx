@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import styles from '../../styles/Navigation.module.css'
 
 export const Wrapper = styled.div`
-  width: 40%;
+  width: 33vw;
   justify-content: center;
   position: relative;
 `

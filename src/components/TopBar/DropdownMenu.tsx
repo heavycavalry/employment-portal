@@ -12,7 +12,23 @@ margin-top: 8px;
 width: 30%;
 z-index: 2;
 overflow-y: scroll;
-height: 80vh;
+overflow-x: hidden;
+height: 70vh;
+&::-webkit-scrollbar{
+     width: 10px;
+     cursor: pointer;
+};
+&::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+};
+&::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  border-radius: calc(15px / 2);
+  &:hover {
+      background-color: black;
+  }
+};
+;
 `
 const Title = styled.p`
 color: gray;
@@ -38,13 +54,13 @@ const Photo = styled.img`
 width:3em;
 margin: 0 1em;
 `
-const Wrapper = styled.div`
-    display: flex;
+const Wrapper = styled.div` 
+display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;    
 `
-const Button = styled.button`
+const SeeProfileBtn = styled.button`
 border: none;
 background: transparent;
 font-size: 0.8em;
@@ -98,7 +114,7 @@ const Account: FC = () => {
             <ProfileImage />
             <Wrapper>
                 <h2>Ferdynand Kiepski</h2>
-                <Button>See profile</Button>
+                <SeeProfileBtn>See profile</SeeProfileBtn>
             </Wrapper>
         </Item>)
 }

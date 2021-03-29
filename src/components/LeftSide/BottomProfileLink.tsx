@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-  padding: 1em 2em;
+  padding: 20px 20px;
   display: flex;
   justify-content: space-around;
   cursor: pointer;

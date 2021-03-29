@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Dropdown from './Dropdown'
 
 export const Wrapper = styled.div`
-  width: 30%;
+  width: 33vw;
   display: flex;
   justify-content: flex-start;
   align-items: center;

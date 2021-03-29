@@ -4,10 +4,11 @@ import Profile from './Profile'
 import UnderProfileLinks from './UnderProfileLinks'
 
 const Wrapper = styled.div`
-  margin: 2em;
+  margin: 3em;
   min-width: 20%;
-  height: 100vh;
-`
+  @media (max-width: 900px) {
+    
+  }`
 
 class LeftSide extends React.Component {
   render() {
