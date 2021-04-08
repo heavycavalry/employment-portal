@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Dropdown from './Dropdown'
 
 export const Wrapper = styled.div`
-  width: 33vw;
+  width: 33%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `
 const Logo = styled.img`
   width: 50px;
-  margin: 2em;
+  margin: 0 2em;
 `
 const HouseIcon = styled.img`
   width: 25px;

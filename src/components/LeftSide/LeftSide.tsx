@@ -7,7 +7,6 @@ const Wrapper = styled.div`
   margin: 3em;
   min-width: 20%;
   @media (max-width: 900px) {
-    
   }`
 
 class LeftSide extends React.Component {

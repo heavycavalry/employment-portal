@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const TextContainer = styled.div`
-margin: 1em;
+  margin: 1em;
   width: 60%;
   overflow-y: scroll;
 `

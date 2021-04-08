@@ -4,7 +4,7 @@ import styles from '../../styles/Navigation.module.css'
 
 export const Wrapper = styled.div`
   margin-right: 1em;
-  width: 33vw;
+  width: 33%;
   display: flex;
   justify-content: flex-end;
 `
