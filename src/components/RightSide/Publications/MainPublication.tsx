@@ -8,7 +8,7 @@ const ImageContainer = styled.div`
   background-image: url('https://i.picsum.photos/id/668/200/200.jpg?hmac=mVqr1fc4nHFre2QMZp5cuqUKLIRSafUtWt2vwlA9jG0');
   background-size: cover;
   border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;;
+  border-bottom-left-radius: 5px;
 `
 const Overlay = styled.div`
   position: absolute;
@@ -42,7 +42,7 @@ const BottomPublication: FC = () => (
 
 const PublicationText = () => (
   <p>
-    Lorem ipsum dolor, sit amet consectetur adipisicing.
+    Głupiemu nawet Salomon nie naleje.
   </p>
 )
 
@@ -51,7 +51,7 @@ const Wrapper = styled.div`
 display: flex;`
 const Info = () => (
   <Wrapper>
-    <p>21 Jan 1994</p>
+    <p>21 Jan 1994   </p>
   </Wrapper>
 )
 

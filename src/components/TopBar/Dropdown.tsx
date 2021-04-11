@@ -7,9 +7,6 @@ const NavLink = styled.p`
 color: white;
 font-size: 1.2em;
 font-weight: 600;
-&:hover {
-  color: var(--shadowBlue);
-}
 `
 const Arrow = styled.img`
 position: absolute;
@@ -17,7 +14,7 @@ right: 0;
 top: 50%;
 `
 const ToogleBox = styled.div`
-width: 20em;
+width: 18rem;
 padding: 1em;
 position: relative;
 cursor: pointer;

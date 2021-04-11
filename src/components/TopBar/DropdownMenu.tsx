@@ -3,12 +3,6 @@ import styled from 'styled-components'
 import MenuLink from '../common/MenuLink'
 import { Item } from '../common/MenuLink'
 import { ItemText } from '../common/MenuLink'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
 
 const Menu = styled.ul`
 position:absolute;
@@ -34,6 +28,7 @@ height: 70vh;
       background-color: black;
   }
 };
+;
 `
 const Title = styled.p`
 color: gray;
@@ -89,28 +84,26 @@ margin-right: 0.5em;
 
 const DropdownMenu: FC = () => {
     return (
-        <Router>
         <Menu>
             <MenuInput />
             <MenuTitle title="Platform" />
-            <MenuLink route="" icon={process.env.PUBLIC_URL + '/Icons/house2.svg'} text="Home" />
-            <MenuLink route="" icon={process.env.PUBLIC_URL + '/Icons/pub_dark.png'} text="Publications" />
-            <MenuLink route="" icon={process.env.PUBLIC_URL + '/Icons/people.svg'} text="People" />
-            <MenuLink route="" icon={process.env.PUBLIC_URL + '/Icons/entities2.svg'} text="Entities" />
-            <MenuLink route="" icon={process.env.PUBLIC_URL + '/Icons/administration.svg'} text="Administration" />
+            <MenuLink icon={process.env.PUBLIC_URL + '/Icons/house2.svg'} text="Home" />
+            <MenuLink icon={process.env.PUBLIC_URL + '/Icons/pub_dark.png'} text="Publications" />
+            <MenuLink icon={process.env.PUBLIC_URL + '/Icons/people.svg'} text="People" />
+            <MenuLink icon={process.env.PUBLIC_URL + '/Icons/entities2.svg'} text="Entities" />
+            <MenuLink icon={process.env.PUBLIC_URL + '/Icons/administration.svg'} text="Administration" />
             <MenuTitle title="Workspaces" />
-            <MenuLink route="" icon={process.env.PUBLIC_URL + '/Icons/house2.svg'} text="Client contract" />
-            <MenuLink route="" icon={process.env.PUBLIC_URL + '/Icons/pub_dark.png'} text="Supplier contract" />
-            <MenuLink route="" icon={process.env.PUBLIC_URL + '/Icons/entities.svg'} text="Corporate" />
-            <MenuLink route="" icon={process.env.PUBLIC_URL + '/Icons/network.svg'} text="Group Norms" />
-            <MenuLink route="" icon={process.env.PUBLIC_URL + '/Icons/administration.svg'} text="Real estate contracts" />
+            <MenuLink icon={process.env.PUBLIC_URL + '/Icons/house2.svg'} text="Client contract" />
+            <MenuLink icon={process.env.PUBLIC_URL + '/Icons/pub_dark.png'} text="Supplier contract" />
+            <MenuLink icon={process.env.PUBLIC_URL + '/Icons/entities.svg'} text="Corporate" />
+            <MenuLink icon={process.env.PUBLIC_URL + '/Icons/network.svg'} text="Group Norms" />
+            <MenuLink icon={process.env.PUBLIC_URL + '/Icons/administration.svg'} text="Real estate contracts" />
             <MenuTitle title="Account" />
             <Account />
-            <MenuLink route="" icon={process.env.PUBLIC_URL + '/Icons/privacy.svg'} text="Privacy" />
-            <MenuLink route="" icon={process.env.PUBLIC_URL + '/Icons/settings.svg'} text="Settings" />
-            <LogOutLink/>
+            <MenuLink icon={process.env.PUBLIC_URL + '/Icons/privacy.svg'} text="Privacy" />
+            <MenuLink icon={process.env.PUBLIC_URL + '/Icons/settings.svg'} text="Settings" />
+            <LogOutLink />
         </Menu>
-        </Router>
     )
 }
 
@@ -130,7 +123,7 @@ const LogOutLink: FC = () => {
     return (
         <LogoutBox>
             <LogoutIcon src={process.env.PUBLIC_URL + '/Icons/logout.svg'} />
-            <ItemText to="">Log out</ItemText>
+            <ItemText>Log out</ItemText>
         </LogoutBox>)
 }
 
