@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import Dropdown from './Dropdown'
+import {
+  Link
+} from "react-router-dom";
 
 export const Wrapper = styled.div`
   width: 33vw;
@@ -21,8 +24,8 @@ class LeftSideNav extends React.Component {
   render() {
     return (
       <Wrapper>
-        <Logo src={process.env.PUBLIC_URL + '/Icons/logo.png'} />
-        <HouseIcon src={process.env.PUBLIC_URL + '/Icons/house.svg'} />
+        <Link to="/"><Logo src={process.env.PUBLIC_URL + '/Icons/logo.png'} /></Link>
+        <Link to="/"><HouseIcon src={process.env.PUBLIC_URL + '/Icons/house.svg'} /></Link>
         <Dropdown/>
       </Wrapper>
     )

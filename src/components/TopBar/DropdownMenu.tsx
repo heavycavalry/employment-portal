@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import MenuLink from '../common/MenuLink'
-import { Item } from '../common/MenuLink'
-import { ItemText } from '../common/MenuLink'
+import MenuLink from './MenuLink'
+import { Item } from './MenuLink'
+import { ItemText } from './MenuLink'
 
 const Menu = styled.ul`
 position:absolute;

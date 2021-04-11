@@ -1,5 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import {
+  Link
+} from "react-router-dom";
+
 
 const Container = styled.div`
   display: flex;
@@ -16,7 +20,7 @@ const Icon = styled.img`
   width: 1.5em;
   margin: 0.2em 2em 0.2em 4em;
 `
-const Text = styled.p`
+const Text = styled(Link)`
   font-family: var(--Lato);
   color: var(--oxfordBlue);
   padding-left: 0.5em;
@@ -46,7 +50,7 @@ class Publications extends React.Component {
     return (
       <Container>
         <Icon src={process.env.PUBLIC_URL + '/Icons/pub_dark.png'}/>
-        <Text>Publications</Text>
+        <Text to="/publications">Publications</Text>
       </Container>
     )
   }
@@ -56,7 +60,7 @@ class Ecosystem extends React.Component {
     return (
       <Container>
         <Icon src={process.env.PUBLIC_URL + '/Icons/ecosystem.svg'}/>
-        <Text>Ecosystem</Text>
+        <Text to="/ecosystem">Ecosystem</Text>
       </Container>
     )
   }
@@ -67,7 +71,7 @@ class Entities extends React.Component {
     return (
       <Container>
         <Icon src={process.env.PUBLIC_URL + '/Icons/entities.svg'}/>
-        <Text>Entities</Text>
+        <Text to="/entities">Entities</Text>
       </Container>
     )
   }

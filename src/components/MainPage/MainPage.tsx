@@ -3,6 +3,9 @@ import TopBar from '../TopBar/TopBar'
 import LeftSide from '../LeftSide/LeftSide'
 import styled from 'styled-components'
 import RightSide from '../RightSide/RightSide'
+import {
+  BrowserRouter as Router,
+} from "react-router-dom";
 require('../../styles/Global.css')
 
 const MainContainer = styled.div`
@@ -17,13 +20,15 @@ justify-content: space-between;
 export class MainPage extends React.Component {
   render() {
     return (
-      <>
+      <Router>
         <TopBar />
         <MainContainer>
+
           <LeftSide />
           <RightSide />
+
         </MainContainer>
-      </>
+        </Router>
     )
   }
 }
