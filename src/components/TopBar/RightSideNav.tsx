@@ -17,6 +17,21 @@ const IconBox = styled.div`
     background-color: var(--blue);
     transition: 0.5s;
   }
+  &::before {
+    content: '12';
+    color: white;
+    font-weight: bold;
+    font-size: 0.8em;
+    text-align: center;
+    display: block;
+    position: absolute;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    top: 10px;
+    right: 20px;
+    border-radius: 50%;
+  }
 `
 interface IButton {
   source: string
@@ -33,7 +48,7 @@ const RightSideNav: FC = () => (
 
 const Button: FC<IButton> = (props) => {
   return (
-    <IconBox>
+    <IconBox className="iconBox">
       <img className={styles.icon} src={props.source} alt={props.description} />
     </IconBox>
   )
