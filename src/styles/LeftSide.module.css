@@ -3,11 +3,14 @@
     padding: 2em;
     border-bottom: 2px solid var(--platinium);
 }
+
 .profilePhoto {
     width: 6em;
     width: 6em;
     margin: 1em;
+    border-radius: 50%;
 }
+
 .profileName {
     color: var(--blue);
     font-weight: 600;
@@ -20,4 +23,3 @@
     font-size: 0.9em;
     padding-top: 0.5em;
 }
-

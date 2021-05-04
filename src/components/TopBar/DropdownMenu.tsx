@@ -1,5 +1,9 @@
 import React, { FC } from 'react'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { IState } from '../../reducers'
+import { IUsersReducer } from '../../reducers/usersReducers'
 import MenuLink from './MenuLink'
 import { Item } from './MenuLink'
 import { ItemText } from './MenuLink'
@@ -53,6 +57,7 @@ margin: 1em 0.5em;`
 const Photo = styled.img`
 width:3em;
 margin: 0 1em;
+border-radius: 50%;
 `
 const Wrapper = styled.div` 
 display: flex;
@@ -109,11 +114,15 @@ const DropdownMenu: FC = () => {
 
 
 const Account: FC = () => {
+    const { usersList } = useSelector<IState, IUsersReducer>(globalState => ({
+        ...globalState.users
+      }));
+
     return (
         <Item>
             <ProfileImage />
             <Wrapper>
-                <h2>Ferdynand Kiepski</h2>
+                <h2>{usersList[1].name}</h2>
                 <SeeProfileBtn>See profile</SeeProfileBtn>
             </Wrapper>
         </Item>)
@@ -129,7 +138,10 @@ const LogOutLink: FC = () => {
 
 
 const ProfileImage: FC = () => {
-    return <Photo src="https://www.linkpicture.com/q/photo_10.png" alt="profile" />
+    const { photo } = useSelector<IState, IUsersReducer>(globalState => ({
+        ...globalState.users
+      }));
+    return <Photo src={photo[1]?.url} alt="profile" />
 }
 const MenuInput: FC = () => {
     return (<InputBox><Input type="text" placeholder="Filter..." /></InputBox>)

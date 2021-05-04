@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {FC, useEffect} from 'react'
 import TopBar from '../TopBar/TopBar'
 import LeftSide from '../LeftSide/LeftSide'
 import styled from 'styled-components'
@@ -6,7 +6,13 @@ import RightSide from '../RightSide/RightSide'
 import {
   BrowserRouter as Router,
 } from "react-router-dom";
+import { useDispatch } from 'react-redux'
+import { getUsers, getPhoto } from '../../actions/usersActions'
 require('../../styles/Global.css')
+
+type GetUsers = ReturnType<typeof getUsers>
+
+type GetPhoto= ReturnType<typeof getPhoto>
 
 const MainContainer = styled.div`
 width: 100%;
@@ -17,18 +23,22 @@ justify-content: space-between;
     justify-content:center;
   }`
 
-export class MainPage extends React.Component {
-  render() {
+export const MainPage: FC = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch<GetUsers>(getUsers());
+    dispatch<GetPhoto>(getPhoto());
+  }, []);
+
     return (
       <Router>
         <TopBar />
         <MainContainer>
-
           <LeftSide />
           <RightSide />
-
         </MainContainer>
         </Router>
     )
   }
-}
+

@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {FC} from 'react'
 import styled from 'styled-components'
 import styles from '../../styles/LeftSide.module.css'
 import BottomProfileLink from './BottomProfileLink'
+import { useSelector } from 'react-redux'
+import { IState } from '../../reducers'
+import { IUsersReducer } from '../../reducers/usersReducers'
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,21 +21,39 @@ const Wrapper = styled.div`
     width: 25em;
   }`
 
-class Profile extends React.Component {
-  state = {
-    photo: 'https://www.linkpicture.com/q/photo_10.png',
-    name: 'Ferdynand Kiepski',
-    job: 'Happy Unemployed',
-  }
-  render() {
-    return (
-      <Wrapper>
-        {ProfileInfo(this.state.photo, this.state.name, this.state.job)}
-        <BottomProfileLink />
-      </Wrapper>
-    )
-  }
+export const Profile: FC = () => {
+  const { usersList } = useSelector<IState, IUsersReducer>(globalState => ({
+    ...globalState.users
+  }));
+  const { photo } = useSelector<IState, IUsersReducer>(globalState => ({
+    ...globalState.users
+  }));
+  return (
+          <Wrapper>
+            {ProfileInfo(photo[1]?.url, usersList[1]?.name, "Software Developer")}
+            <BottomProfileLink />
+          </Wrapper>
+        )
 }
+
+
+// class Profile extends React.Component {
+//   state = {
+//     photo: 'https://www.linkpicture.com/q/photo_10.png',
+//     name: 'Ferdynand Kiepski',
+//     job: 'Happy Unemployed',
+//   }
+
+//   render() {
+//     return (
+//       <Wrapper>
+//         {console.log(usersList)}
+//         {ProfileInfo(this.state.photo, this.state.name, this.state.job)}
+//         <BottomProfileLink />
+//       </Wrapper>
+//     )
+//   }
+// }
 
 const ProfileInfo = (photo: string, name: string, job: string) => (
   <div className={styles.profileBox}>
