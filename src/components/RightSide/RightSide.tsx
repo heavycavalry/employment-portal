@@ -5,9 +5,10 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import { Entities } from '../Entities/Entities';
 
 const Wrapper = styled.div`
-  margin: 3em;
+  margin: 3em 2em;
   width: 80%;
   height: 100vh;
   @media (max-width: 900px) {
@@ -39,7 +40,6 @@ class RightSide extends React.Component {
 }
 
 const Ecosystem = () => {return <h1>ECOSYSTEM</h1>}
-const Entities = () => {return <h1>ENTITIES</h1>}
 const Home = () => {return <h1>HOME</h1>}
 
 export default RightSide

@@ -12,11 +12,6 @@ body {
     background: var(--platinium);
 }
 
-
-/* #root {
-    margin: 5px 20px;
-} */
-
 :root {
     --richBlack: #0d1b2a;
     --oxfordBlue: #1b263b;
@@ -36,4 +31,38 @@ ul {
 
 a {
     text-decoration: none;
+}
+
+.entitiesStyle {
+    font-family: var(--Lato);
+}
+
+button {
+    font-family: var(--Lato);
+    color: rgb(97, 97, 97);
+    cursor: pointer;
+    border: none;
+}
+
+button::before {
+    color: var(--shadowBlue) !important;
+}
+
+button::after {
+    color: var(--richBlack) !important;
+}
+
+button::before,
+button::after,
+h2::after {
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+}
+
+.whiteBtn {
+    box-shadow: 1px 1px 2px 0.5px #8e8e8e;
+    background: white;
+    border-radius: 5px;
+    padding: 2px;
 }

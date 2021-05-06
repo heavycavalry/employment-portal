@@ -10,6 +10,10 @@ margin: 1em;
 const LatestPublications = () => (
   <TextContainer>
     <Publication />
+    <Publication />
+    <Publication />
+    <Publication />
+    <Publication />
   </TextContainer>
 )
 

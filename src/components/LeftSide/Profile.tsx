@@ -36,25 +36,6 @@ export const Profile: FC = () => {
         )
 }
 
-
-// class Profile extends React.Component {
-//   state = {
-//     photo: 'https://www.linkpicture.com/q/photo_10.png',
-//     name: 'Ferdynand Kiepski',
-//     job: 'Happy Unemployed',
-//   }
-
-//   render() {
-//     return (
-//       <Wrapper>
-//         {console.log(usersList)}
-//         {ProfileInfo(this.state.photo, this.state.name, this.state.job)}
-//         <BottomProfileLink />
-//       </Wrapper>
-//     )
-//   }
-// }
-
 const ProfileInfo = (photo: string, name: string, job: string) => (
   <div className={styles.profileBox}>
     <img className={styles.profilePhoto} src={photo} alt="" />
