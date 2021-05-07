@@ -1,5 +1,9 @@
 import React, { FC } from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { IState } from '../../../reducers'
+import { IUsersReducer } from '../../../reducers/usersReducers'
+import { PublicationBottomInfo } from './PublicationsBottomInfo'
 
 const ImageContainer = styled.div`
   position: relative;
@@ -18,13 +22,24 @@ const Overlay = styled.div`
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 `
-const BottomDiv = styled.p`
+const InfoDiv = styled.div`
   margin: 20px;
   line-height: 1.5;
   position: absolute;
   z-index: 1;
   bottom: 0;
   color: white;
+`
+export const Text = styled.p`
+  font-size: 1rem;
+  &::first-letter {
+  text-transform: uppercase;
+  }
+`
+export const InfoText = styled.p`
+font-size: 0.9rem;
+font-weight: bold;
+color: var(--gray);
 `
 const MainPublication: FC = () => (
   <ImageContainer>
@@ -34,26 +49,22 @@ const MainPublication: FC = () => (
 )
 
 const BottomPublication: FC = () => (
-  <BottomDiv>
+  <InfoDiv>
     <PublicationText />
-    <Info />
-  </BottomDiv>
+    <PublicationBottomInfo/>
+  </InfoDiv>
 )
 
-const PublicationText = () => (
-  <p>
-    Głupiemu nawet Salomon nie naleje.
-  </p>
-)
+const PublicationText: FC = () => {
+  const { postsList } = useSelector<IState, IUsersReducer>(globalState => ({
+    ...globalState.users
+  }));
+  return(
+  <Text>
+    {postsList[1]?.body}
+  </Text>)
 
-
-const Wrapper = styled.div`
-display: flex;`
-const Info = () => (
-  <Wrapper>
-    <p>21 Jan 1994   </p>
-  </Wrapper>
-)
+  }
 
 
 export default MainPublication

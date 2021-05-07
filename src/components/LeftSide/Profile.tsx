@@ -25,12 +25,12 @@ export const Profile: FC = () => {
   const { usersList } = useSelector<IState, IUsersReducer>(globalState => ({
     ...globalState.users
   }));
-  const { photo } = useSelector<IState, IUsersReducer>(globalState => ({
+  const { photosList } = useSelector<IState, IUsersReducer>(globalState => ({
     ...globalState.users
   }));
   return (
           <Wrapper>
-            {ProfileInfo(photo[1]?.url, usersList[1]?.name, "Software Developer")}
+            {ProfileInfo(photosList[1]?.url, usersList[1]?.name, "Software Developer")}
             <BottomProfileLink />
           </Wrapper>
         )

@@ -29,3 +29,11 @@ export interface ISingleUserPhoto {
     url: string;
     thumbnailUrl: string;
 };
+
+
+export interface ISingleUserPost {
+    userID: number;
+    id: number;
+    title: string;
+    body: string;
+};

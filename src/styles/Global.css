@@ -16,7 +16,8 @@ body {
     --richBlack: #0d1b2a;
     --oxfordBlue: #1b263b;
     --blue: #415a77;
-    --shadowBlue: #778da9;
+    --gray: rgb(119, 119, 119);
+    --shadowBlue: #92a5be;
     --platinium: #e0e1dd;
     --shadow: 4px 4px 8px 1px #8e8e8e;
     --btnShadow: 1px 1px 1px 0px rgb(56, 56, 56);

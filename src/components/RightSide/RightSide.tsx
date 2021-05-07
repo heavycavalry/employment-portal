@@ -5,7 +5,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import { Entities } from '../Entities/Entities';
+import { Entities } from '../RightSide/Entities/Entities';
 
 const Wrapper = styled.div`
   margin: 3em 2em;

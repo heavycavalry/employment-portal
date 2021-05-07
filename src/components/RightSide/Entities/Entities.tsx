@@ -1,6 +1,6 @@
 import React, {FC} from 'react'
 import styled from 'styled-components'
-import { ISingleUserPhoto } from '../../entities/users'
+import { ISingleUserPhoto } from '../../../entities/users'
 import { EntitiesActionButtons } from './EntitiesActionButtons'
 import { TopEntities } from './TopEntities'
 
@@ -50,6 +50,18 @@ export const Entities: FC = () => (
 
 export const EntitiesTiles: FC = () => (
     <EntitiesContainer>
+    <EntitiesTile photo="https://i.picsum.photos/id/1049/200/200.jpg?hmac=9458e0GuMIU0518gk-YBqEGna1AnYjhDQGPEXFp-J04" company="Ala ma kota" address="Cukierkowa Street"/>
+    <EntitiesTile photo="https://i.picsum.photos/id/1049/200/200.jpg?hmac=9458e0GuMIU0518gk-YBqEGna1AnYjhDQGPEXFp-J04" company="Ala ma kota" address="Cukierkowa Street"/>
+    <EntitiesTile photo="https://i.picsum.photos/id/1049/200/200.jpg?hmac=9458e0GuMIU0518gk-YBqEGna1AnYjhDQGPEXFp-J04" company="Ala ma kota" address="Cukierkowa Street"/>
+    <EntitiesTile photo="https://i.picsum.photos/id/1049/200/200.jpg?hmac=9458e0GuMIU0518gk-YBqEGna1AnYjhDQGPEXFp-J04" company="Ala ma kota" address="Cukierkowa Street"/>
+    <EntitiesTile photo="https://i.picsum.photos/id/1049/200/200.jpg?hmac=9458e0GuMIU0518gk-YBqEGna1AnYjhDQGPEXFp-J04" company="Ala ma kota" address="Cukierkowa Street"/>
+    <EntitiesTile photo="https://i.picsum.photos/id/1049/200/200.jpg?hmac=9458e0GuMIU0518gk-YBqEGna1AnYjhDQGPEXFp-J04" company="Ala ma kota" address="Cukierkowa Street"/>
+    <EntitiesTile photo="https://i.picsum.photos/id/1049/200/200.jpg?hmac=9458e0GuMIU0518gk-YBqEGna1AnYjhDQGPEXFp-J04" company="Ala ma kota" address="Cukierkowa Street"/>
+    <EntitiesTile photo="https://i.picsum.photos/id/1049/200/200.jpg?hmac=9458e0GuMIU0518gk-YBqEGna1AnYjhDQGPEXFp-J04" company="Ala ma kota" address="Cukierkowa Street"/>
+    <EntitiesTile photo="https://i.picsum.photos/id/1049/200/200.jpg?hmac=9458e0GuMIU0518gk-YBqEGna1AnYjhDQGPEXFp-J04" company="Ala ma kota" address="Cukierkowa Street"/>
+    <EntitiesTile photo="https://i.picsum.photos/id/1049/200/200.jpg?hmac=9458e0GuMIU0518gk-YBqEGna1AnYjhDQGPEXFp-J04" company="Ala ma kota" address="Cukierkowa Street"/>
+    <EntitiesTile photo="https://i.picsum.photos/id/1049/200/200.jpg?hmac=9458e0GuMIU0518gk-YBqEGna1AnYjhDQGPEXFp-J04" company="Ala ma kota" address="Cukierkowa Street"/>
+    <EntitiesTile photo="https://i.picsum.photos/id/1049/200/200.jpg?hmac=9458e0GuMIU0518gk-YBqEGna1AnYjhDQGPEXFp-J04" company="Ala ma kota" address="Cukierkowa Street"/>
     <EntitiesTile photo="https://i.picsum.photos/id/1049/200/200.jpg?hmac=9458e0GuMIU0518gk-YBqEGna1AnYjhDQGPEXFp-J04" company="Ala ma kota" address="Cukierkowa Street"/>
     <EntitiesTile photo="https://i.picsum.photos/id/1049/200/200.jpg?hmac=9458e0GuMIU0518gk-YBqEGna1AnYjhDQGPEXFp-J04" company="Ala ma kota" address="Cukierkowa Street"/>
     <EntitiesTile photo="https://i.picsum.photos/id/1049/200/200.jpg?hmac=9458e0GuMIU0518gk-YBqEGna1AnYjhDQGPEXFp-J04" company="Ala ma kota" address="Cukierkowa Street"/>

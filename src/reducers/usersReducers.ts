@@ -1,14 +1,16 @@
-import {ISingleUser, ISingleUserPhoto} from '../entities/users'
+import {ISingleUser, ISingleUserPhoto, ISingleUserPost} from '../entities/users'
 import * as actionTypes from '../actions/actionTypes/userTypes'
 
 export interface IUsersReducer {
     usersList: ISingleUser[];
-    photo: ISingleUserPhoto[];
+    photosList: ISingleUserPhoto[];
+    postsList: ISingleUserPost[];
 }
 
 const defaultState = (): IUsersReducer => ({
     usersList: [],
-    photo: []
+    photosList: [],
+    postsList: []
 })
 
 export default (state = defaultState(), action:any) => {
@@ -24,7 +26,14 @@ export default (state = defaultState(), action:any) => {
             const paylod: actionTypes.IUserTypes['GET_PHOTO'] = action;
             return {
                 ...state,
-                photo: paylod.photo
+                photosList: paylod.photosList
+            }
+        }
+        case actionTypes.GET_POST: {
+            const paylod: actionTypes.IUserTypes['GET_POST'] = action;
+            return {
+                ...state,
+                postsList: paylod.postsList
             }
         }
 

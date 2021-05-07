@@ -7,12 +7,14 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 import { useDispatch } from 'react-redux'
-import { getUsers, getPhoto } from '../../actions/usersActions'
+import { getUsers, getPhoto, getPost } from '../../actions/usersActions'
 require('../../styles/Global.css')
 
 type GetUsers = ReturnType<typeof getUsers>
 
 type GetPhoto= ReturnType<typeof getPhoto>
+
+type GetPost= ReturnType<typeof getPost>
 
 const MainContainer = styled.div`
 width: 100%;
@@ -23,12 +25,14 @@ justify-content: space-between;
     justify-content:center;
   }`
 
+
 export const MainPage: FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch<GetUsers>(getUsers());
     dispatch<GetPhoto>(getPhoto());
+    dispatch<GetPost>(getPost());
   }, []);
 
     return (

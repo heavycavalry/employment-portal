@@ -138,10 +138,10 @@ const LogOutLink: FC = () => {
 
 
 const ProfileImage: FC = () => {
-    const { photo } = useSelector<IState, IUsersReducer>(globalState => ({
+    const { photosList } = useSelector<IState, IUsersReducer>(globalState => ({
         ...globalState.users
       }));
-    return <Photo src={photo[1]?.url} alt="profile" />
+    return <Photo src={photosList[1]?.url} alt="profile" />
 }
 const MenuInput: FC = () => {
     return (<InputBox><Input type="text" placeholder="Filter..." /></InputBox>)
