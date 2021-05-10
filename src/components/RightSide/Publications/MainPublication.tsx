@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { IRandomNumber } from '../../../App'
 import { IState } from '../../../reducers'
 import { IUsersReducer } from '../../../reducers/usersReducers'
 import { PublicationBottomInfo } from './PublicationsBottomInfo'
@@ -41,17 +42,17 @@ font-size: 0.9rem;
 font-weight: bold;
 color: var(--gray);
 `
-const MainPublication: FC = () => (
+const MainPublication: FC<IRandomNumber> = ({id}) => (
   <ImageContainer>
     <Overlay/>
-    <BottomPublication />
+    <BottomPublication id={id}/>
   </ImageContainer>
 )
 
-const BottomPublication: FC = () => (
+const BottomPublication: FC<IRandomNumber> = ({id}) => (
   <InfoDiv>
     <PublicationText />
-    <PublicationBottomInfo/>
+    <PublicationBottomInfo id={id}/>
   </InfoDiv>
 )
 

@@ -1,6 +1,7 @@
 import React, {FC} from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { IRandomNumber } from '../../../App'
 import { IState } from '../../../reducers'
 import { IUsersReducer } from '../../../reducers/usersReducers'
 
@@ -20,7 +21,7 @@ export const Image = styled.img`
   margin: 0 10px;`
   
   
-export const PublicationBottomInfo: FC = () => {
+export const PublicationBottomInfo: FC<IRandomNumber> = ({id}) => {
     const { photosList } = useSelector<IState, IUsersReducer>(globalState => ({
       ...globalState.users
     }));
@@ -30,8 +31,8 @@ export const PublicationBottomInfo: FC = () => {
     return (
     <InfoWrapper>
     <InfoText>20 jan 2021</InfoText>
-    <Image src={photosList[1]?.url} alt="" />
-    <InfoText>{usersList[1]?.name}</InfoText>
+    <Image src={photosList[id]?.url} alt="" />
+    <InfoText>{usersList[id]?.name}</InfoText>
     </InfoWrapper>
   )
   }

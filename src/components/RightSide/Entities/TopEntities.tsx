@@ -1,5 +1,6 @@
 import {FC} from 'react'
 import styled from 'styled-components'
+import { entitiesTileArray } from './Entities';
 
 export const Wrapper = styled.div`
 margin-left: 10px;
@@ -40,6 +41,7 @@ border-left: 2px solid #bebebe;
 
 }
 `;
+
 export const Title = styled.h2`
 text-transform:uppercase;
 &::after {
@@ -57,9 +59,39 @@ export const TopEntities: FC = () => {
         <Title>Entities</Title>
         <Icon></Icon>
         <BtnBox>
-        <MosaicBtn>Mosaic</MosaicBtn>
-        <ListBtn></ListBtn>
+            <MosaicBtn className="mosaic-btn" onClick={SetMosaic}>Mosaic</MosaicBtn>
+            <ListBtn className="list-btn" onClick={SetList}></ListBtn>
         </BtnBox>
         </Wrapper>
+    
     )
+}
+
+function getEntitiesContainer(): HTMLElement {
+    return document.querySelector(".entities-container") as HTMLElement;
+  }
+  
+function getEntitiesTiles(): NodeListOf<HTMLElement> {
+    return document.querySelectorAll(".entities-tile-box");
+  }
+
+  function getMosaicBtn(): HTMLElement {
+    return document.querySelector(".mosaic-btn") as HTMLElement;
+  }
+  
+function getListBtn(): HTMLElement {
+    return document.querySelector(".list-btn") as HTMLElement;
+  }
+
+function SetList() {
+    getEntitiesContainer().style.gridTemplateColumns = "repeat(1, 1fr)";
+    getEntitiesTiles().forEach(tile =>  tile.style.width = "100%");
+    getMosaicBtn().style.background = "var(--platinium)";
+    getListBtn().style.background = "rgb(239, 239, 239)";
+}
+
+function SetMosaic() {
+    getEntitiesContainer().style.gridTemplateColumns = "repeat(auto-fit, minmax(260px, 1fr))";
+    getListBtn().style.background = "var(--platinium)";
+    getMosaicBtn().style.background = "rgb(239, 239, 239)";
 }

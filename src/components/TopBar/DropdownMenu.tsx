@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { IRandomNumber } from "../../App";
 import { IState } from "../../reducers";
 import { IUsersReducer } from "../../reducers/usersReducers";
 import MenuLink from "./MenuLink";
@@ -87,7 +88,7 @@ const LogoutIcon = styled.img`
   margin-right: 0.5em;
 `;
 
-const DropdownMenu: FC= () => {
+const DropdownMenu: FC<IRandomNumber>= ({id}) => {
   return (
     <Menu>
       <MenuInput />
@@ -134,7 +135,7 @@ const DropdownMenu: FC= () => {
         text="Real estate contracts"
       />
       <MenuTitle title="Account" />
-      <Account/>
+      <Account id={id}/>
       <MenuLink
         icon={process.env.PUBLIC_URL + "/Icons/privacy.svg"}
         text="Privacy"
@@ -148,16 +149,16 @@ const DropdownMenu: FC= () => {
   );
 };
 
-const Account: FC = () => {
+const Account: FC<IRandomNumber> = ({id}) => {
   const { usersList } = useSelector<IState, IUsersReducer>((globalState) => ({
     ...globalState.users,
   }));
 
   return (
     <Item>
-      <ProfileImage />
+      <ProfileImage id={id}/>
       <Wrapper>
-        <h2>{usersList[1]?.name}</h2>
+        <h2>{usersList[id]?.name}</h2>
         <SeeProfileBtn>See profile</SeeProfileBtn>
       </Wrapper>
     </Item>
@@ -173,11 +174,11 @@ const LogOutLink: FC = () => {
   );
 };
 
-const ProfileImage: FC = () => {
+const ProfileImage: FC<IRandomNumber> = ({id}) => {
   const { photosList } = useSelector<IState, IUsersReducer>((globalState) => ({
     ...globalState.users,
   }));
-  return <Photo src={photosList[1]?.url} alt="profile" />;
+  return <Photo src={photosList[id]?.url} alt="profile" />;
 };
 const MenuInput: FC = () => {
   return (

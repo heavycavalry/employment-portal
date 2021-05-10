@@ -1,6 +1,7 @@
 import React, {FC} from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { IRandomNumber } from '../../../App'
 import { IState } from '../../../reducers'
 import { IUsersReducer } from '../../../reducers/usersReducers'
 import { Text } from './MainPublication'
@@ -45,43 +46,38 @@ const TextContainer = styled.div`
   margin: 0 10px;
   `
 
-const LatestPublications: FC = () => (
+const LatestPublications: FC<IRandomNumber> = ({id}) => (
   <TextContainer>
-    <Publication />
-    <Publication />
-    <Publication />
-    <Publication />
-    <Publication />
-    <Publication />
-    <Publication />
-    <Publication />
-    <Publication />
-    <Publication />
-    <Publication />
-    <Publication />
-    <Publication />
+    <Publication id={id}/>
+    <Publication id={id}/>
+    <Publication id={id}/>
+    <Publication id={id}/>
+    <Publication id={id}/>
+    <Publication id={id}/>
+    <Publication id={id}/>
+    <Publication id={id}/>
+    <Publication id={id}/>
+    <Publication id={id}/>
+    <Publication id={id}/>
   </TextContainer>
 )
 
-export class Publication extends React.Component {
-render() {
+export const Publication: FC<IRandomNumber> = ({id}) => {
     return (
       <PublicationWrapper>
-        <PublicationPhoto/>
+        <PublicationPhoto id={id}/>
         <PublicationTopInfo/>
-        <PublicationBottomInfo />
+        <PublicationBottomInfo id={id}/>
       </PublicationWrapper>
     )
 }
-}
 
-const PublicationPhoto: FC = () => {
+const PublicationPhoto: FC<IRandomNumber> = ({id}) => {
   const { photosList } = useSelector<IState, IUsersReducer>(globalState => ({
     ...globalState.users
   }));
-  const randomNumber = Math.floor(Math.random()*100);
   return (
-  <Photo src={photosList[randomNumber]?.url} alt=""/>)
+  <Photo src={photosList[id]?.url} alt=""/>)
 }
 
 export const PublicationTopInfo: FC = () => {

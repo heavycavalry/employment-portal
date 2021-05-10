@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components'
 import Publications from './Publications/Publications'
 import {
@@ -8,6 +8,7 @@ import {
 import { Entities } from '../RightSide/Entities/Entities';
 import { Workspaces } from './Workspaces/Workspaces';
 import { Resume } from '../Resume/Resume';
+import { IRandomNumber } from '../../App';
 
 const Wrapper = styled.div`
   margin: 3em 2em;
@@ -18,13 +19,12 @@ const Wrapper = styled.div`
   }`
 
 
-class RightSide extends React.Component {
-  render() {
+const RightSide: FC<IRandomNumber> = ({id}) => {
     return (
       <Wrapper>
         <Switch>
           <Route path="/publications">
-            <Publications />
+            <Publications id={id}/>
             <Workspaces/>
             <Resume/>
           </Route>
@@ -40,7 +40,6 @@ class RightSide extends React.Component {
         </Switch>
       </Wrapper>
     )
-  }
 }
 
 const Ecosystem = () => {return <h1>ECOSYSTEM</h1>}

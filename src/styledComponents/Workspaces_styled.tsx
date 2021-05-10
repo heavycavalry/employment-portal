@@ -27,7 +27,7 @@ pointer-events: none;
 `
 export const SliderBoxItem = styled.div`
 position: relative;
-min-width: 330px;
+min-width: 320px;
 height: 330px;
 margin: 10px 20px;
 background-color: white;

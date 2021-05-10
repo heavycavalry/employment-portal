@@ -45,10 +45,10 @@ export const MainPage: FC<IRandomNumber> = ({id}) => {
 
   return (
     <Router>
-      <TopBar />
+      <TopBar id={id}/>
       <MainContainer>
         <LeftSide id={id}/>
-        <RightSide/>
+        <RightSide id={id}/>
       </MainContainer>
     </Router>
   );

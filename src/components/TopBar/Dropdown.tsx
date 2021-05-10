@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import useDropdown from 'react-dropdown-hook'
 import styled from 'styled-components'
+import { IRandomNumber } from '../../App'
 import DropdownMenu from './DropdownMenu'
 
 const NavLink = styled.p`
@@ -21,7 +22,7 @@ cursor: pointer;
 margin-left: 2em;
 `
 
-export const Dropdown: FC = () => {
+export const Dropdown: FC<IRandomNumber> = ({id}) => {
   const [wrapperRef, dropdownOpen, toggleDropdown, closeDropdown] = useDropdown();
   return (
     <div>
@@ -31,7 +32,7 @@ export const Dropdown: FC = () => {
           <Arrow src={`${process.env.PUBLIC_URL}/Icons/arrow-down.svg`} alt="arrow down" />
         </ToogleBox>
         {dropdownOpen &&
-          <DropdownMenu/>
+          <DropdownMenu id={id}/>
         }
       </div>
       <div onClick={closeDropdown}></div>

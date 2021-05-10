@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components'
+import { IRandomNumber } from '../../../App'
 import LatestPublications from './LatestPublications'
 import MainPublication from './MainPublication'
 
@@ -20,16 +21,14 @@ background: none;
 color: var(--blue);
 ;`
   
-class Publications extends React.Component {
-  render() {
+const Publications: FC<IRandomNumber> = ({id}) => {
     return (
       <Wrapper>
-        <MainPublication/>
-        <LatestPublications />
+        <MainPublication id={id}/>
+        <LatestPublications id={id}/>
         <Button>See more publications</Button>
       </Wrapper>
     )
-  }
 }
 
 

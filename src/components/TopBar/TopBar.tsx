@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import SearchBar from './SearchBar'
 import RightSideNav from './RightSideNav'
 import LeftSideNav from './LeftSideNav'
+import { IRandomNumber } from '../../App'
 
 export const Wrapper = styled.div`
   min-width: 100%;
@@ -14,10 +15,10 @@ export const Wrapper = styled.div`
   align-items: center;
 `
 
-const Navigation: FC = () => {
+const Navigation: FC<IRandomNumber> = ({id}) => {
   return (
     <Wrapper className="navbar">
-      <LeftSideNav/>
+      <LeftSideNav id={id}/>
       <SearchBar />
       <RightSideNav />
     </Wrapper>
