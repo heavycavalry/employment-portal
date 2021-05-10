@@ -8,7 +8,7 @@ export const EntitiesActionButtons: FC = () => {
     return (
         <Wrapper>
         <LeftActionButtons />
-        <RightActionButtons />
+        <RightActionButtons placeholder="Search..."/>
         </Wrapper>
     )
 }

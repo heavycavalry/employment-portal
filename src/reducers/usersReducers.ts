@@ -1,16 +1,18 @@
-import {ISingleUser, ISingleUserPhoto, ISingleUserPost} from '../entities/users'
+import {ISingleUser, ISingleUserComment, ISingleUserPhoto, ISingleUserPost} from '../entities/users'
 import * as actionTypes from '../actions/actionTypes/userTypes'
-
+ /* eslint-disable */ 
 export interface IUsersReducer {
     usersList: ISingleUser[];
     photosList: ISingleUserPhoto[];
     postsList: ISingleUserPost[];
+    commentsList: ISingleUserComment[];
 }
 
 const defaultState = (): IUsersReducer => ({
     usersList: [],
     photosList: [],
-    postsList: []
+    postsList: [],
+    commentsList: []
 })
 
 export default (state = defaultState(), action:any) => {
@@ -34,6 +36,13 @@ export default (state = defaultState(), action:any) => {
             return {
                 ...state,
                 postsList: paylod.postsList
+            }
+        }
+        case actionTypes.GET_COMMENT: {
+            const paylod: actionTypes.IUserTypes['GET_COMMENT'] = action;
+            return {
+                ...state,
+                commentsList: paylod.commentsList
             }
         }
 

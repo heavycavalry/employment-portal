@@ -5,7 +5,9 @@ import { IState } from '../../../reducers'
 import { IUsersReducer } from '../../../reducers/usersReducers'
 
 const InfoWrapper = styled.div`
-display: flex;`
+margin-top: 10px;
+display: flex;
+`
 
 export const InfoText = styled.p`
 font-size: 0.9rem;

@@ -16,8 +16,8 @@ export const Wrapper = styled.div`
 
 const Navigation: FC = () => {
   return (
-    <Wrapper>
-      <LeftSideNav />
+    <Wrapper className="navbar">
+      <LeftSideNav/>
       <SearchBar />
       <RightSideNav />
     </Wrapper>

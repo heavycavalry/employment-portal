@@ -27,10 +27,14 @@ margin: 0 10px;
     content: "\f078";
 }`
 
-export const RightActionButtons: FC = () => {
+interface IPlaceholder {
+    placeholder: string;
+}
+
+export const RightActionButtons: FC<IPlaceholder> = (props) => {
     return (
         <Container>
-           <Input type="text" placeholder="Search..."/>
+           <Input type="text" placeholder={props.placeholder}/>
            <SearchIcon className="fas fa-search"></SearchIcon>
             <FollowedDropdown className="whiteBtn">Followed</FollowedDropdown>
            </Container>

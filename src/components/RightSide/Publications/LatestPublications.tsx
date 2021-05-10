@@ -30,16 +30,18 @@ const TextContainer = styled.div`
 
   const PublicationWrapper = styled.div`
   width: 90%;
+  height: fit-content;
   text-align: justify;
   margin: 10px;
   padding: 10px;
   box-shadow: var(--shadow);
   border-radius: 5px;
   background-color: white;
+  position: relative;
   `
   const Photo = styled.img`
   float: left;
-  width:  80px;
+  width:  90px;
   margin: 0 10px;
   `
 
@@ -73,17 +75,23 @@ render() {
 }
 }
 
-const PublicationPhoto: FC = () => (
-  <Photo src="https://i.picsum.photos/id/954/200/200.jpg?hmac=U_V-b3xGbMM1KTSaB5KKqncFD4fmOVG5iK39Bjd9DoQ" alt=""/>
-)
+const PublicationPhoto: FC = () => {
+  const { photosList } = useSelector<IState, IUsersReducer>(globalState => ({
+    ...globalState.users
+  }));
+  const randomNumber = Math.floor(Math.random()*100);
+  return (
+  <Photo src={photosList[randomNumber]?.url} alt=""/>)
+}
 
-export const PublicationTopInfo: FC = (x) => {
+export const PublicationTopInfo: FC = () => {
   const { postsList } = useSelector<IState, IUsersReducer>(globalState => ({
     ...globalState.users
   }));
+  const randomNumber = Math.floor(Math.random()*100);
   return (
     <Text>
-      {postsList[1]?.body}   
+      {postsList[randomNumber]?.body}   
     </Text>
   )
 }

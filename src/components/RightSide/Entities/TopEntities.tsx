@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import {FC} from 'react'
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
@@ -40,7 +40,7 @@ border-left: 2px solid #bebebe;
 
 }
 `;
-const Title = styled.h2`
+export const Title = styled.h2`
 text-transform:uppercase;
 &::after {
     content: "\f013";

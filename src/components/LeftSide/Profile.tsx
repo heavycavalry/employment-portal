@@ -5,6 +5,7 @@ import BottomProfileLink from './BottomProfileLink'
 import { useSelector } from 'react-redux'
 import { IState } from '../../reducers'
 import { IUsersReducer } from '../../reducers/usersReducers'
+import { IRandomNumber } from '../../App'
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ const Wrapper = styled.div`
     width: 25em;
   }`
 
-export const Profile: FC = () => {
+export const Profile: FC<IRandomNumber> = ({id}) => {
   const { usersList } = useSelector<IState, IUsersReducer>(globalState => ({
     ...globalState.users
   }));
@@ -30,7 +31,7 @@ export const Profile: FC = () => {
   }));
   return (
           <Wrapper>
-            {ProfileInfo(photosList[1]?.url, usersList[1]?.name, "Software Developer")}
+            {ProfileInfo(photosList[id]?.url, usersList[id]?.name, "Software Developer")}
             <BottomProfileLink />
           </Wrapper>
         )

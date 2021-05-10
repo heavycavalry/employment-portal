@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import * as actionTypes from "../actions/actionTypes/userTypes"
-import { ISingleUser, ISingleUserPhoto, ISingleUserPost } from "../entities/users"
+import { ISingleUser, ISingleUserComment, ISingleUserPhoto, ISingleUserPost } from "../entities/users"
 
 export const getUsers = (): Promise<any> => ((dispatch: Dispatch) => {
     return fetch('https://jsonplaceholder.typicode.com/users')
@@ -34,6 +34,18 @@ export const getPost = (): Promise<any> => ((dispatch: Dispatch) => {
             type: actionTypes.GET_POST,
             postsList
 
+    })
+})
+}) as any;
+
+
+export const getComment = (): Promise<any> => ((dispatch: Dispatch) => {
+    return fetch('https://jsonplaceholder.typicode.com/comments')
+    .then(reponse => reponse.json())
+    .then(( commentsList: ISingleUserComment[]) => {
+        dispatch({
+            type: actionTypes.GET_COMMENT,
+            commentsList
     })
 })
 }) as any;

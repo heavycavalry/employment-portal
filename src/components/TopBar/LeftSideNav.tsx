@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components'
 import Dropdown from './Dropdown'
 import {
@@ -20,8 +20,7 @@ const HouseIcon = styled.img`
   width: 25px;
 `
 
-class LeftSideNav extends React.Component {
-  render() {
+const LeftSideNav: FC = () => {
     return (
       <Wrapper>
         <Link to="/"><Logo src={process.env.PUBLIC_URL + '/Icons/logo.png'} /></Link>
@@ -29,6 +28,5 @@ class LeftSideNav extends React.Component {
         <Dropdown/>
       </Wrapper>
     )
-  }
 }
 export default LeftSideNav

@@ -6,12 +6,13 @@ import MainPublication from './MainPublication'
 const Wrapper = styled.div`
   display: flex;
   height: 450px;
-  background-color: white;
+  background-color: rgba(255,255,255,0.5);;
   border-radius: 5px;
   position:relative;`
 
 const Button = styled.button`
 position: absolute;
+font-weight: bold;
 bottom:0;
 right: 50px;
 padding: 5px;

@@ -31,7 +31,7 @@ export const Dropdown: FC = () => {
           <Arrow src={`${process.env.PUBLIC_URL}/Icons/arrow-down.svg`} alt="arrow down" />
         </ToogleBox>
         {dropdownOpen &&
-          <DropdownMenu />
+          <DropdownMenu/>
         }
       </div>
       <div onClick={closeDropdown}></div>

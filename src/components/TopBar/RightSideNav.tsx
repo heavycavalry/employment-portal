@@ -21,9 +21,8 @@ const IconBox = styled.div`
     content: '12';
     color: white;
     font-weight: bold;
-    font-size: 0.8em;
-    text-align: center;
-    display: block;
+    font-size: 0.9em;
+    line-height: normal;
     position: absolute;
     background-color: red;
     width: 20px;
@@ -31,6 +30,9 @@ const IconBox = styled.div`
     top: 10px;
     right: 20px;
     border-radius: 50%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
   }
 `
 interface IButton {
