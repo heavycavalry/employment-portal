@@ -1,6 +1,7 @@
 import React, {FC} from 'react'
 import styled from 'styled-components'
 import { EntitiesActionButtons } from './EntitiesActionButtons'
+import { Filters } from './Filters'
 import { TopEntities } from './TopEntities'
 
 const Container = styled.div`
@@ -48,6 +49,7 @@ export const Entities: FC = () => (
     <Container>
         <TopEntities />
         <EntitiesActionButtons />
+        <Filters/>
         <EntitiesTiles/>
     </Container>
 )

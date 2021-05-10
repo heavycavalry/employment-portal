@@ -7,10 +7,10 @@ import { IUsersReducer } from '../../../reducers/usersReducers'
 import { PublicationBottomInfo } from './PublicationsBottomInfo'
 
 const ImageContainer = styled.div`
+background-image: url("https://images.unsplash.com/photo-1527149535940-240e6deec1fe?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80");
   position: relative;
   width: 500px;
   background-repeat: no-repeat;
-  background-image: url('https://i.picsum.photos/id/668/200/200.jpg?hmac=mVqr1fc4nHFre2QMZp5cuqUKLIRSafUtWt2vwlA9jG0');
   background-size: cover;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -29,7 +29,8 @@ const InfoDiv = styled.div`
   position: absolute;
   z-index: 1;
   bottom: 0;
-  color: white;
+  color: var(--gray);
+  text-align: justify;
 `
 export const Text = styled.p`
   font-size: 1rem;
@@ -43,7 +44,7 @@ font-weight: bold;
 color: var(--gray);
 `
 const MainPublication: FC<IRandomNumber> = ({id}) => (
-  <ImageContainer>
+  <ImageContainer className='main-img-container'>
     <Overlay/>
     <BottomPublication id={id}/>
   </ImageContainer>

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { entitiesTileArray } from './Entities';
 
 export const Wrapper = styled.div`
-margin-left: 10px;
+margin: 10px;
 display: flex;
 justify-content: space-between;
 `;
