@@ -56,8 +56,8 @@ export const LeftActionButtons: FC = () => {
             <DropBtn className="whiteBtn">All</DropBtn>
             <Dots></Dots>
             <Sort>Sort</Sort>
-            <Filtr>Filters</Filtr>
-            <Expand onClick={handleClick}></Expand>
+            <Filtr onClick={handleFiltersClick}>Filters</Filtr>
+            <Expand onClick={handleExpandClick}></Expand>
             <Share>Share</Share>
         </div>
     )
@@ -71,7 +71,15 @@ function getLeftSide(): HTMLElement {
     return document.querySelector('.navbar') as HTMLElement;
   };
 
-function handleClick() {
+  function getFilters(): HTMLElement {
+    return document.querySelector('.filters') as HTMLElement;
+  };
+
+function handleExpandClick() {
     getNavBar().classList.toggle("hide");
     getLeftSide().classList.toggle("hide");
+}
+
+function handleFiltersClick() {
+    getFilters().classList.toggle("hide");
 }

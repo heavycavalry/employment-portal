@@ -27,7 +27,7 @@ margin: 0 10px;
     content: "\f078";
 }`
 
-interface IPlaceholder {
+export interface IPlaceholder {
     placeholder: string;
 }
 
