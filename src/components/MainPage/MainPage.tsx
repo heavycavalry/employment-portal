@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import TopBar from "../TopBar/TopBar";
 import LeftSide from "../LeftSide/LeftSide";
 import styled from "styled-components";
@@ -34,6 +34,7 @@ const MainContainer = styled.div`
 `;
 
 export const MainPage: FC<IRandomNumber> = ({id}) => {
+
   const dispatch = useDispatch();
 
   useEffect(() => {

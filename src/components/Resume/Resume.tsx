@@ -1,15 +1,14 @@
-import { FC } from "react";
-import { useSelector } from "react-redux";
+import React, { FC, useState } from "react";
 import styled from "styled-components";
+import { InnerSlider, MediumText, Title } from "../../styledComponents/Workspaces_styled";
+import { IRandomNumber } from "../../App";
+import { useSelector } from "react-redux";
 import { IState } from "../../reducers";
 import { IUsersReducer } from "../../reducers/usersReducers";
-import { MediumText, Title } from "../../styledComponents/Workspaces_styled";
-import { RightActionButtons } from "../RightSide/Entities/RightActionButtons";
 import { Wrapper } from "../RightSide/Entities/TopEntities";
+import { RightActionButtons } from "../RightSide/Entities/RightActionButtons";
+import ReactPaginate, { ReactPaginateProps } from "react-paginate";
 
-const Div = styled.div`
-  margin-top: 30px;
-`;
 const TileTitle = styled.p`
   font-size: 1.2rem;
   &::first-letter {
@@ -22,78 +21,76 @@ const TileText = styled.p`
   }
 `;
 const TileBox = styled.div`
-  margin: 10px;
+  margin: 10px 0;
   padding: 10px 20px;
   background: white;
 `;
 
-export const Resume: FC = () => {
-  const { commentsList } = useSelector<IState, IUsersReducer>(
-    (globalState) => ({
-      ...globalState.users,
-    })
-  );
-  const { usersList } = useSelector<IState, IUsersReducer>((globalState) => ({
-    ...globalState.users,
+const InnerDiv = styled.div`
+  margin: 20px 0;
+`;
+
+export const Resume: FC<IRandomNumber> = ({id}:any) => {
+  const { commentsList } = useSelector<IState, IUsersReducer>(globalState => ({
+    ...globalState.users
   }));
+  const { usersList } = useSelector<IState, IUsersReducer>(globalState => ({
+    ...globalState.users
+  }));
+
+  const [pageNumber, setPageNumber] = useState(0);
+  const commentsPerPage = 5;
+  const pagesVisited = pageNumber * commentsPerPage;
+
+  const displayComments = commentsList
+  .slice(pagesVisited, pagesVisited + commentsPerPage)
+  .map((comment) => {
+    return (
+    <TileBox>
+    <TileTitle>{comment.name}</TileTitle>
+    <TileText>{comment.body}</TileText>
+    <MediumText>{usersList[id]?.name} • </MediumText>
+    <MediumText>Communication • </MediumText>
+    <MediumText>Updated 3 days ago by {usersList[id]?.name}</MediumText>
+  </TileBox>
+    );
+  });
+
+  const pageCount = Math.ceil(commentsList.length / commentsPerPage)
+  const changePage = ({selected}:any) => {
+    setPageNumber(selected);
+  }
+
   return (
     <>
-      <TopResume />
-      <ResumeTile
-        title={commentsList[1]?.name}
-        body={commentsList[1]?.body}
-        company="Subsid.corp."
-        topic="Corporate"
-        name={usersList[1]?.name}
+      <InnerDiv>
+      <TopResume/>
+      {displayComments}
+      </InnerDiv>
+      <InnerDiv>
+      <ReactPaginate
+        previousLabel ={<i className="fas fa-chevron-left"></i>}
+        nextLabel={<i className="fas fa-chevron-right"></i>}
+        pageCount={pageCount}
+        onPageChange={changePage}
+        containerClassName={"paginationBox"}
+        previousLinkClassName={"paginationBtn"}
+        nextLinkClassName={"paginationBtn"}
+        disabledClassName={"paginationDisable"}
+        activeClassName={"paginationAcive"}
+        pageRangeDisplayed={2}
+        marginPagesDisplayed={2}
       />
-      <ResumeTile
-        title={commentsList[1]?.name}
-        body={commentsList[1]?.body}
-        company="Subsid.corp."
-        topic="Corporate"
-        name={usersList[1]?.name}
-      />
-      <ResumeTile
-        title={commentsList[1]?.name}
-        body={commentsList[1]?.body}
-        company="Subsid.corp."
-        topic="Corporate"
-        name={usersList[1]?.name}
-      />
-      <ResumeTile
-        title={commentsList[1]?.name}
-        body={commentsList[1]?.body}
-        company="Subsid.corp."
-        topic="Corporate"
-        name={usersList[1]?.name}
-      />
+      </InnerDiv>
     </>
-  );
-};
+  )
+}
 
 const TopResume: FC = () => (
   <Wrapper>
     <Title>Resume your work</Title>
-    <Div>
+    <InnerDiv>
       <RightActionButtons placeholder="Filter by title..." />
-    </Div>
+    </InnerDiv>
   </Wrapper>
-);
-
-interface IResumeTile {
-  title: string;
-  body: string;
-  company: string;
-  topic: string;
-  name: string;
-}
-
-const ResumeTile: FC<IResumeTile> = (props) => (
-  <TileBox>
-    <TileTitle>{props.title}</TileTitle>
-    <TileText>{props.body}</TileText>
-    <MediumText>{props.company} • </MediumText>
-    <MediumText>{props.topic} • </MediumText>
-    <MediumText>Updated 3 days ago by {props.name}</MediumText>
-  </TileBox>
 );

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Dispatch } from 'redux';
 import * as actionTypes from "../actions/actionTypes/userTypes"
 import { ISingleUser, ISingleUserComment, ISingleUserPhoto, ISingleUserPost } from "../entities/users"
@@ -49,3 +50,4 @@ export const getComment = (): Promise<any> => ((dispatch: Dispatch) => {
     })
 })
 }) as any;
+

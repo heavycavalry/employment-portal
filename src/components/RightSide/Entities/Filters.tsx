@@ -5,6 +5,7 @@ const Container = styled.div`
 background-color: white;
   padding: 20px;
   border-radius: 5px;
+  display: none;
 `;
 
 const BtnWrapper = styled.div`

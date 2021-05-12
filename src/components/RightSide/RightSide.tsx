@@ -26,7 +26,7 @@ const RightSide: FC<IRandomNumber> = ({id}) => {
           <Route path="/publications">
             <Publications id={id}/>
             <Workspaces/>
-            <Resume/>
+            <Resume id={id}/>
           </Route>
           <Route path="/ecosystem">
             <Ecosystem />

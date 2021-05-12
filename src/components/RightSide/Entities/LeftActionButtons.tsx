@@ -1,3 +1,4 @@
+import { env } from 'node:process'
 import React, { FC } from 'react'
 import styled from 'styled-components'
 
@@ -58,7 +59,7 @@ export const LeftActionButtons: FC = () => {
             <Sort>Sort</Sort>
             <Filtr onClick={handleFiltersClick}>Filters</Filtr>
             <Expand onClick={handleExpandClick}></Expand>
-            <Share>Share</Share>
+            <Share onClick={() => {navigator.clipboard.writeText(window.location.href)}}>Share</Share>
         </div>
     )
 }
@@ -81,5 +82,5 @@ function handleExpandClick() {
 }
 
 function handleFiltersClick() {
-    getFilters().classList.toggle("hide");
+    getFilters().classList.toggle("show");
 }

@@ -18,6 +18,7 @@ body {
     --oxfordBlue: #1b263b;
     --blue: #415a77;
     --gray: rgb(146, 146, 146);
+    --mediumGray: rgb(124, 124, 124);
     --darkGray: rgb(68, 68, 68);
     --shadowBlue: #92a5be;
     --platinium: #e0e1dd;
@@ -72,4 +73,31 @@ h2::after {
 
 .hide {
     display: none !important;
+}
+
+.show {
+    display: block !important;
+}
+
+.paginationBox {
+    margin: 0 auto;
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0 20px 0;
+    cursor: pointer;
+    color: var(--mediumGray);
+}
+
+.paginationBtn {
+    color: var(--blue);
+}
+
+.paginationDisable {
+    color: red;
+}
+
+.paginationAcive {
+    color: var(--blue);
+    font-weight: bold;
 }
