@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import { entitiesTileArray } from './Entities';
 
 export const Wrapper = styled.div`
-margin: 10px;
+margin: 10px 0;
 display: flex;
 justify-content: space-between;
+align-items: center;
 `;
 const BtnBox = styled.div`
 display: flex;

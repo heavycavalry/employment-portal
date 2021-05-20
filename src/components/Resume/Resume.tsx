@@ -5,29 +5,47 @@ import { IRandomNumber } from "../../App";
 import { useSelector } from "react-redux";
 import { IState } from "../../reducers";
 import { IUsersReducer } from "../../reducers/usersReducers";
-import { Wrapper } from "../RightSide/Entities/TopEntities";
 import { RightActionButtons } from "../RightSide/Entities/RightActionButtons";
 import ReactPaginate, { ReactPaginateProps } from "react-paginate";
+import { Wrapper } from "../RightSide/Entities/TopEntities";
 
 const TileTitle = styled.p`
+color: var(--blue);
+font-weight: bold;
   font-size: 1.2rem;
   &::first-letter {
     text-transform: uppercase;
   }
 `;
 const TileText = styled.p`
+margin: 10px 0;
   &::first-letter {
     text-transform: uppercase;
   }
 `;
 const TileBox = styled.div`
   margin: 10px 0;
-  padding: 10px 20px;
+  padding: 20px 30px;
   background: white;
+  border-radius: 5px;
 `;
-
-const InnerDiv = styled.div`
-  margin: 20px 0;
+const InfoBox = styled.div`
+  display: flex;
+  justify-content: flex-start; 
+  color: var(--mediumGray);
+  font-size: 0.82rem;
+  > * {
+    margin: 0 5px;
+  } 
+  > :first-child {
+    margin-left: 0 !important;
+  }
+  > :nth-child(-n+2) {
+    &:after {
+      content: "•";
+      padding-left: 5px;
+    }
+  }
 `;
 
 export const Resume: FC<IRandomNumber> = ({id}:any) => {
@@ -49,9 +67,11 @@ export const Resume: FC<IRandomNumber> = ({id}:any) => {
     <TileBox>
     <TileTitle>{comment.name}</TileTitle>
     <TileText>{comment.body}</TileText>
-    <MediumText>{usersList[id]?.name} • </MediumText>
-    <MediumText>Communication • </MediumText>
-    <MediumText>Updated 3 days ago by {usersList[id]?.name}</MediumText>
+    <InfoBox>
+    <p>{usersList[id]?.name} </p>
+    <p>Communication   </p>
+    <p>Updated 3 days ago by {usersList[id]?.name}</p>
+    </InfoBox>
   </TileBox>
     );
   });
@@ -63,11 +83,8 @@ export const Resume: FC<IRandomNumber> = ({id}:any) => {
 
   return (
     <>
-      <InnerDiv>
       <TopResume/>
       {displayComments}
-      </InnerDiv>
-      <InnerDiv>
       <ReactPaginate
         previousLabel ={<i className="fas fa-chevron-left"></i>}
         nextLabel={<i className="fas fa-chevron-right"></i>}
@@ -81,7 +98,6 @@ export const Resume: FC<IRandomNumber> = ({id}:any) => {
         pageRangeDisplayed={2}
         marginPagesDisplayed={2}
       />
-      </InnerDiv>
     </>
   )
 }
@@ -89,8 +105,6 @@ export const Resume: FC<IRandomNumber> = ({id}:any) => {
 const TopResume: FC = () => (
   <Wrapper>
     <Title>Resume your work</Title>
-    <InnerDiv>
       <RightActionButtons placeholder="Filter by title..." />
-    </InnerDiv>
   </Wrapper>
 );

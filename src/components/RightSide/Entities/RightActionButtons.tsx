@@ -16,7 +16,7 @@ right: 150px;
 color: gray;
 `
 const FollowedDropdown = styled.button`
-margin: 0 10px;
+margin-left: 10px;
 &::before {
     padding-left: 5px;
     content: "\f1ce";

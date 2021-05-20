@@ -39,12 +39,6 @@ export const Slider: FC = () => {
           type="Group norms"
           usersNumber="48"
         />
-        <SliderItem
-          imageUrl="https://i.picsum.photos/id/818/200/200.jpg?hmac=gfhJZngz3JDsSmE1obNFY5OeAQBVsJLED2VkwuGsC-o"
-          title="Companies"
-          type="Companies"
-          usersNumber="11"
-        />
       </InnerSlider>
     </MainSlider>
   );

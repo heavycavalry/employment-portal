@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { IRandomNumber } from "../../App";
@@ -31,7 +31,7 @@ const Menu = styled.ul`
     &:hover {
       background-color: black;
     }
-  } ;
+  }
 `;
 const Title = styled.p`
   color: gray;
@@ -88,75 +88,113 @@ const LogoutIcon = styled.img`
   margin-right: 0.5em;
 `;
 
-const DropdownMenu: FC<IRandomNumber>= ({id}) => {
+const DropdownMenu: FC<IRandomNumber> = ({ id }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  
   return (
     <Menu>
-      <MenuInput />
+      <InputBox>
+      <Input
+        type="text"
+        placeholder="Filter..."
+        onChange={(event) => {
+          setSearchTerm(event?.target.value);
+        }}
+      />
+    </InputBox>
       <MenuTitle title="Platform" />
-      <MenuLink
-        icon={process.env.PUBLIC_URL + "/Icons/house2.svg"}
-        text="Home"
-      />
-      <MenuLink
-        icon={process.env.PUBLIC_URL + "/Icons/pub_dark.png"}
-        text="Publications"
-      />
-      <MenuLink
-        icon={process.env.PUBLIC_URL + "/Icons/people.svg"}
-        text="People"
-      />
-      <MenuLink
-        icon={process.env.PUBLIC_URL + "/Icons/entities2.svg"}
-        text="Entities"
-      />
-      <MenuLink
-        icon={process.env.PUBLIC_URL + "/Icons/administration.svg"}
-        text="Administration"
-      />
+      {"Home".toLowerCase().includes(searchTerm.toLowerCase()) && (
+        <MenuLink
+          icon={process.env.PUBLIC_URL + "/Icons/house2.svg"}
+          text="Home"
+        />
+      )}
+      {"Publications".toLowerCase().includes(searchTerm.toLowerCase()) && (
+        <MenuLink
+          icon={process.env.PUBLIC_URL + "/Icons/pub_dark.png"}
+          text="Publications"
+        />
+      )}
+      {"people".toLowerCase().includes(searchTerm.toLowerCase()) && (
+        <MenuLink
+          icon={process.env.PUBLIC_URL + "/Icons/people.svg"}
+          text="People"
+        />
+      )}
+      {"entities".toLowerCase().includes(searchTerm.toLowerCase()) && (
+        <MenuLink
+          icon={process.env.PUBLIC_URL + "/Icons/entities2.svg"}
+          text="Entities"
+        />
+      )}
+      {"administration".toLowerCase().includes(searchTerm.toLowerCase()) && (
+        <MenuLink
+          icon={process.env.PUBLIC_URL + "/Icons/administration.svg"}
+          text="Administration"
+        />
+      )}
       <MenuTitle title="Workspaces" />
-      <MenuLink
-        icon={process.env.PUBLIC_URL + "/Icons/house2.svg"}
-        text="Client contract"
-      />
-      <MenuLink
-        icon={process.env.PUBLIC_URL + "/Icons/pub_dark.png"}
-        text="Supplier contract"
-      />
-      <MenuLink
-        icon={process.env.PUBLIC_URL + "/Icons/entities.svg"}
-        text="Corporate"
-      />
-      <MenuLink
-        icon={process.env.PUBLIC_URL + "/Icons/network.svg"}
-        text="Group Norms"
-      />
-      <MenuLink
-        icon={process.env.PUBLIC_URL + "/Icons/administration.svg"}
-        text="Real estate contracts"
-      />
+      {"Client contract".toLowerCase().includes(searchTerm.toLowerCase()) && (
+        <MenuLink
+          icon={process.env.PUBLIC_URL + "/Icons/house2.svg"}
+          text="Client contract"
+        />
+      )}
+      {"supplier contract".toLowerCase().includes(searchTerm.toLowerCase()) && (
+        <MenuLink
+          icon={process.env.PUBLIC_URL + "/Icons/pub_dark.png"}
+          text="Supplier contract"
+        />
+      )}
+      {"corporate".toLowerCase().includes(searchTerm.toLowerCase()) && (
+        <MenuLink
+          icon={process.env.PUBLIC_URL + "/Icons/entities.svg"}
+          text="Corporate"
+        />
+      )}
+      {"group norms".toLowerCase().includes(searchTerm.toLowerCase()) && (
+        <MenuLink
+          icon={process.env.PUBLIC_URL + "/Icons/network.svg"}
+          text="Group Norms"
+        />
+      )}
+      {"real estate contracts"
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase()) && (
+        <MenuLink
+          icon={process.env.PUBLIC_URL + "/Icons/administration.svg"}
+          text="Real estate contracts"
+        />
+      )}
       <MenuTitle title="Account" />
-      <Account id={id}/>
-      <MenuLink
-        icon={process.env.PUBLIC_URL + "/Icons/privacy.svg"}
-        text="Privacy"
-      />
-      <MenuLink
-        icon={process.env.PUBLIC_URL + "/Icons/settings.svg"}
-        text="Settings"
-      />
+      {"account".toLowerCase().includes(searchTerm.toLowerCase()) && (
+        <Account id={id} />
+      )}
+      {"privacy".toLowerCase().includes(searchTerm.toLowerCase()) && (
+        <MenuLink
+          icon={process.env.PUBLIC_URL + "/Icons/privacy.svg"}
+          text="Privacy"
+        />
+      )}
+      {"settings".toLowerCase().includes(searchTerm.toLowerCase()) && (
+        <MenuLink
+          icon={process.env.PUBLIC_URL + "/Icons/settings.svg"}
+          text="Settings"
+        />
+      )}
       <LogOutLink />
     </Menu>
   );
 };
 
-const Account: FC<IRandomNumber> = ({id}) => {
+const Account: FC<IRandomNumber> = ({ id }) => {
   const { usersList } = useSelector<IState, IUsersReducer>((globalState) => ({
     ...globalState.users,
   }));
 
   return (
     <Item>
-      <ProfileImage id={id}/>
+      <ProfileImage id={id} />
       <Wrapper>
         <h2>{usersList[id]?.name}</h2>
         <SeeProfileBtn>See profile</SeeProfileBtn>
@@ -174,18 +212,11 @@ const LogOutLink: FC = () => {
   );
 };
 
-const ProfileImage: FC<IRandomNumber> = ({id}) => {
+const ProfileImage: FC<IRandomNumber> = ({ id }) => {
   const { photosList } = useSelector<IState, IUsersReducer>((globalState) => ({
     ...globalState.users,
   }));
   return <Photo src={photosList[id]?.url} alt="profile" />;
-};
-const MenuInput: FC = () => {
-  return (
-    <InputBox>
-      <Input type="text" placeholder="Filter..." />
-    </InputBox>
-  );
 };
 
 interface IMenuTitle {

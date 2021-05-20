@@ -45,7 +45,7 @@ interface IEntitiesTile {
 }
 
 export const Entities: FC = () => (
-    
+
     <Container>
         <TopEntities />
         <EntitiesActionButtons />
@@ -160,11 +160,11 @@ export const entitiesTileArray = [
 ]
 
 export const EntitiesTiles: FC = () => (
-
     <EntitiesContainer className="entities-container">
            {entitiesTileArray.map(value => <EntitiesTile photo={value.photo} company={value.company} address={value.address}/>)}
     </EntitiesContainer>
 )
+
 interface IEntitiesTile{
     photo: string
     company: string
@@ -172,7 +172,7 @@ interface IEntitiesTile{
   }
 
   const EntitiesTile: FC<IEntitiesTile> = (props) => {
-
+    
     return (
         <Item className="entities-tile-box">
             <Image src={props.photo} alt="" />
