@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import { IState } from '../../reducers'
 import { IUsersReducer } from '../../reducers/usersReducers'
 import { IRandomNumber } from '../../App'
+import { Link } from 'react-router-dom'
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,6 +22,10 @@ const Wrapper = styled.div`
     border-left: 6px solid var(--blue);
     width: 25em;
   }`
+
+  const ProfileLink = styled(Link)`
+  display: inline-block;
+  `
 
 export const Profile: FC<IRandomNumber> = ({id}) => {
   const { usersList } = useSelector<IState, IUsersReducer>(globalState => ({
@@ -40,7 +45,7 @@ export const Profile: FC<IRandomNumber> = ({id}) => {
 const ProfileInfo = (photo: string, name: string, job: string) => (
   <div className={styles.profileBox}>
     <img className={styles.profilePhoto} src={photo} alt="" />
-    <p className={styles.profileName}>{name}</p>
+    <ProfileLink to="/profile" className={styles.profileName}>{name}</ProfileLink>
     <p className={styles.profileJobTitle}>Job title - {job}</p>
   </div>
 )

@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Icon = styled.img`
@@ -13,20 +14,22 @@ export const Item = styled.li`
   margin: 1em;
 `;
 
-export const ItemText = styled.p`
+export const ItemText = styled(Link)`
   font-family: var(--Lato);
+  color: black;
 `;
 
 interface IMenuLink {
   icon: string;
   text: string;
+  link: string;
 }
 
 const MenuLink: FC<IMenuLink> = (props) => {
   return (
     <Item>
       <Icon src={props.icon} />
-      <ItemText>{props.text}</ItemText>
+      <ItemText to={props.link}>{props.text}</ItemText>
     </Item>
   );
 };

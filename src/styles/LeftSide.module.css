@@ -1,5 +1,7 @@
 .profileBox {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 2em;
     border-bottom: 2px solid var(--platinium);
 }

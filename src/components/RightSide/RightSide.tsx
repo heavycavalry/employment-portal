@@ -9,6 +9,7 @@ import { Entities } from '../RightSide/Entities/Entities';
 import { Workspaces } from './Workspaces/Workspaces';
 import { Resume } from '../Resume/Resume';
 import { IRandomNumber } from '../../App';
+import { MainProfile } from '../MainProfile/MainProfile';
 
 const Wrapper = styled.div`
   margin: 3em 2em;
@@ -33,6 +34,9 @@ const RightSide: FC<IRandomNumber> = ({id}) => {
           </Route>
           <Route path="/entities">
             <Entities />
+          </Route>
+          <Route path="/profile">
+            <MainProfile />
           </Route>
           <Route path="/">
             <Home />
