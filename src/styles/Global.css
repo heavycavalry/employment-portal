@@ -18,9 +18,9 @@ body {
     --oxfordBlue: #1b263b;
     --blue: #415a77;
     --gray: rgb(146, 146, 146);
-    --mediumGray: rgb(124, 124, 124);
+    --mediumGray: rgb(110, 110, 110);
     --darkGray: rgb(68, 68, 68);
-    --shadowBlue: #92a5be;
+    --shadowBlue: #a6bcd8;
     --platinium: #e0e1dd;
     --shadow: 4px 4px 8px 1px #8e8e8e;
     --btnShadow: 1px 1px 1px 0px rgb(56, 56, 56);
@@ -35,6 +35,8 @@ ul {
 
 a {
     text-decoration: none;
+    font-family: var(--Lato);
+    cursor: pointer;
 }
 
 .entitiesStyle {

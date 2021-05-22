@@ -1,15 +1,15 @@
 import React, { FC, useState } from "react";
 import styled from "styled-components";
-import { InnerSlider, MediumText, Title } from "../../styledComponents/Workspaces_styled";
-import { IRandomNumber } from "../../App";
+import { InnerSlider, MediumText, Title } from "../../../styledComponents/Workspaces_styled";
+import { IRandomNumber } from "../../../App";
 import { useSelector } from "react-redux";
-import { IState } from "../../reducers";
-import { IUsersReducer } from "../../reducers/usersReducers";
-import { RightActionButtons } from "../RightSide/Entities/RightActionButtons";
+import { IState } from "../../../reducers";
+import { IUsersReducer } from "../../../reducers/usersReducers";
+import { RightActionButtons } from "../Entities/RightActionButtons";
 import ReactPaginate, { ReactPaginateProps } from "react-paginate";
-import { Wrapper } from "../RightSide/Entities/TopEntities";
+import { Wrapper } from "../Entities/TopEntities";
 
-const TileTitle = styled.p`
+export const TileTitle = styled.p`
 color: var(--blue);
 font-weight: bold;
   font-size: 1.2rem;

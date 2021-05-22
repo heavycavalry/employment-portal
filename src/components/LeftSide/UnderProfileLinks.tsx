@@ -60,7 +60,7 @@ class Ecosystem extends React.Component {
     return (
       <Container>
         <Icon src={process.env.PUBLIC_URL + '/Icons/ecosystem.svg'}/>
-        <Text to="/ecosystem">Ecosystem</Text>
+        <Text to="/profile">Ecosystem</Text> {/*{TYMCZASOWO} */}
       </Container>
     )
   }

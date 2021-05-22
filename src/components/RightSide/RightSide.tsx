@@ -7,9 +7,9 @@ import {
 } from "react-router-dom";
 import { Entities } from '../RightSide/Entities/Entities';
 import { Workspaces } from './Workspaces/Workspaces';
-import { Resume } from '../Resume/Resume';
+import { Resume } from './Resume/Resume';
 import { IRandomNumber } from '../../App';
-import { MainProfile } from '../MainProfile/MainProfile';
+import { ProfilePage } from './ProfilePage/ProfilePage';
 
 const Wrapper = styled.div`
   margin: 3em 2em;
@@ -29,14 +29,15 @@ const RightSide: FC<IRandomNumber> = ({id}) => {
             <Workspaces/>
             <Resume id={id}/>
           </Route>
-          <Route path="/ecosystem">
-            <Ecosystem />
+          <Route path="/profile"> {/* TYMCZASOWO !!!*/}
+            {/* <Ecosystem /> */}
+            <ProfilePage />
           </Route>
           <Route path="/entities">
             <Entities />
           </Route>
           <Route path="/profile">
-            <MainProfile />
+            <ProfilePage />
           </Route>
           <Route path="/">
             <Home />

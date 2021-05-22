@@ -65,7 +65,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
 `;
-const SeeProfileBtn = styled(Link)`
+export const SeeProfileBtn = styled(Link)`
   font-size: 0.9em;
   font-weight: 600;
   color: var(--blue);
