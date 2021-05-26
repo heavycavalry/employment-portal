@@ -1,80 +1,53 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
 import {
-  Link
-} from "react-router-dom";
-
-
-const Container = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  margin: 0.2em;
-  align-items: center;
-  cursor: pointer;
-`
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-const Icon = styled.img`
-  width: 1.5em;
-  margin: 0.2em 2em 0.2em 4em;
-`
-const Text = styled(Link)`
-  font-family: var(--Lato);
-  color: var(--oxfordBlue);
-  padding-left: 0.5em;
-  border-left: 2px solid var(--blue);
-  transition-property: border;
-  transition-duration: 0.2s;
-  transition-timing-function: linear;
-&:hover{
-  color: var(--blue);
-  border-left: 5px solid var(--blue);
-}`
+  HoverLink,
+  LinkContainer,
+  LinkWrapper,
+  UnderIcon,
+} from "./LeftSide_styles";
 
 class UnderProfileLinks extends React.Component {
   render() {
     return (
-      <Wrapper>
+      <LinkWrapper>
         <Publications />
         <Ecosystem />
         <Entities />
-      </Wrapper>
-    )
+      </LinkWrapper>
+    );
   }
 }
 
 class Publications extends React.Component {
   render() {
     return (
-      <Container>
-        <Icon src={process.env.PUBLIC_URL + '/Icons/pub_dark.png'}/>
-        <Text to="/publications">Publications</Text>
-      </Container>
-    )
+      <LinkContainer>
+        <UnderIcon src={process.env.PUBLIC_URL + "/Icons/pub_dark.png"} />
+        <HoverLink to="/publications">Publications</HoverLink>
+      </LinkContainer>
+    );
   }
 }
 class Ecosystem extends React.Component {
   render() {
     return (
-      <Container>
-        <Icon src={process.env.PUBLIC_URL + '/Icons/ecosystem.svg'}/>
-        <Text to="/profile">Ecosystem</Text> {/*{TYMCZASOWO} */}
-      </Container>
-    )
+      <LinkContainer>
+        <UnderIcon src={process.env.PUBLIC_URL + "/Icons/ecosystem.svg"} />
+        <HoverLink to="/ecosystem">Ecosystem</HoverLink>
+      </LinkContainer>
+    );
   }
 }
 
 class Entities extends React.Component {
   render() {
     return (
-      <Container>
-        <Icon src={process.env.PUBLIC_URL + '/Icons/entities.svg'}/>
-        <Text to="/entities">Entities</Text>
-      </Container>
-    )
+      <LinkContainer>
+        <UnderIcon src={process.env.PUBLIC_URL + "/Icons/entities.svg"} />
+        <HoverLink to="/entities">Entities</HoverLink>
+      </LinkContainer>
+    );
   }
 }
 
-export default UnderProfileLinks
+export default UnderProfileLinks;

@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import useDropdown from 'react-dropdown-hook'
 import styled from 'styled-components'
+import { isPropertySignature } from 'typescript'
 import { IRandomNumber } from '../../App'
 import DropdownMenu from './DropdownMenu'
 
@@ -21,6 +22,10 @@ position: relative;
 cursor: pointer;
 margin-left: 2em;
 `
+
+interface IText {
+  text: string
+}
 
 export const Dropdown: FC<IRandomNumber> = ({id}) => {
   const [wrapperRef, dropdownOpen, toggleDropdown, closeDropdown] = useDropdown();

@@ -5,9 +5,11 @@ import { EditBtn } from "../../common/EditButtonStyles";
 import { CommonWrapper } from "../../common/ProfilePageSectionWrapper";
 import { SeeProfileBtn } from "../../TopBar/DropdownMenu";
 import { FlexDiv } from "./ProfilePage";
-import { Button, TextField } from "@material-ui/core";
 import { FlexColumn } from "../../common/FlexColumn";
-import React from "react";
+import { useSelector } from "react-redux";
+import { IState } from "../../../reducers";
+import { IUsersReducer } from "../../../reducers/usersReducers";
+import { IRandomNumber } from "../../../App";
 
 const Image = styled.img`
   width: 90px;
@@ -23,10 +25,9 @@ const InnerBox = styled.div`
   align-items: center;
 `;
 const ContactDataBox = styled.div`
-  width: 200px;
   position: absolute;
-  bottom: 45px;
-  right: 30px;
+  bottom: 25px;
+  right: 40px;
   ${FlexColumn}
 `;
 const PersonalInfoBox = styled.div`
@@ -37,34 +38,43 @@ const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
 `;
-const DataField = styled(Field)<{ disabled: boolean }>`
-  border: ${({ disabled }) => (disabled ? "none" : "1px solid black")};
-  background-color: ${({ disabled }) =>
-    disabled ? "transparent" : "var(--platinium)"};
+export const DataField = styled(Field)<{ disabled: boolean }>`
+  border: none;
+  ${({ disabled }) =>
+    disabled ? "min-width: fit-content" : "width: 350px"};
+  border-bottom: ${({ disabled }) =>
+    disabled ? "none" : "1px solid var(--shadowBlue)"};
+  background: none;
   padding: 2px 5px;
-  margin: 1px;
+  margin-bottom: 3px;
+  &:focus {
+    outline: none;
+  }
 `;
 
-export const PersonalDataForm: FC = () => {
+export const PersonalDataForm: FC<IRandomNumber> = ({ id }) => {
   const [isDisabled, setEdit] = useState(true);
+  const { usersList } = useSelector<IState, IUsersReducer>((globalState) => ({
+    ...globalState.users,
+  }));
   return (
     <Formik
+    enableReinitialize
       initialValues={{
-        name: "Alex Rodriquez",
-        street: "Street 232",
-        city: "New-york",
+        name: usersList[id]?.name,
+        street: usersList[id]?.address.street + " " + usersList[id]?.address.suite,
+        city: usersList[id]?.address.city,
         position: "Partner",
-        mail: "alex_rodriguez@gmail.com",
-        phone: "+ 33(0) 12 34 56 78",
+        mail: usersList[id]?.email,
+        phone: usersList[id]?.phone
       }}
       onSubmit={(data, { setSubmitting }) => {
         setSubmitting(true);
-        //make asunc call
         console.log(data.name);
         setSubmitting(false);
       }}
     >
-      {({ values, isSubmitting }) => (
+      {() => (
         <StyledForm>
           <EditBtn
             onClick={() => (isDisabled ? setEdit(false) : setEdit(true))}
@@ -73,27 +83,27 @@ export const PersonalDataForm: FC = () => {
           </EditBtn>
           <PersonalInfoBox>
             <DataField disabled={isDisabled} name="name" type="text" />
-            <DataField disabled={isDisabled} name="street" type="input" />
-            <DataField disabled={isDisabled} name="city" type="input" />
-            <DataField disabled={isDisabled} name="position" type="input" />
+            <DataField disabled={isDisabled} name="street" type="text" />
+            <DataField disabled={isDisabled} name="city" type="text" />
+            <DataField disabled={isDisabled} name="position" type="text" />
           </PersonalInfoBox>
           <ContactDataBox>
-            <DataField disabled={isDisabled} name="mail" type="input" />
-            <DataField disabled={isDisabled} name="phone" type="input" />
+            <DataField disabled={isDisabled} name="mail" type="text" />
+            <DataField disabled={isDisabled} name="phone" type="text" />
           </ContactDataBox>
         </StyledForm>
       )}
     </Formik>
   );
 };
-export const PersonalDataSection: FC = () => (
+export const PersonalDataSection: FC<IRandomNumber> = ({ id }) => (
   <Wrapper>
     <FlexDiv>
       <InnerBox>
         <Image src="https://thispersondoesnotexist.com/image" alt="" />
         <SeeProfileBtn to="/">See profile</SeeProfileBtn>
       </InnerBox>
-      <PersonalDataForm />
+      <PersonalDataForm id={id} />
     </FlexDiv>
   </Wrapper>
 );

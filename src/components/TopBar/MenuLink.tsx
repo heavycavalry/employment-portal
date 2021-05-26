@@ -17,6 +17,9 @@ export const Item = styled.li`
 export const ItemText = styled(Link)`
   font-family: var(--Lato);
   color: black;
+  &:hover {
+    border-bottom: 1px solid var(--blue);
+  }
 `;
 
 interface IMenuLink {

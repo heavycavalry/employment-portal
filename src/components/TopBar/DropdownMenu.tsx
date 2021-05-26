@@ -111,7 +111,7 @@ const DropdownMenu: FC<IRandomNumber> = ({ id }) => {
         />
       )}
       {"people".toLowerCase().includes(searchTerm.toLowerCase()) && (
-        <MenuLink link="/home"
+        <MenuLink link="/people"
           icon={process.env.PUBLIC_URL + "/Icons/people.svg"}
           text="People"
         />
@@ -123,32 +123,32 @@ const DropdownMenu: FC<IRandomNumber> = ({ id }) => {
         />
       )}
       {"administration".toLowerCase().includes(searchTerm.toLowerCase()) && (
-        <MenuLink link="/home"
+        <MenuLink link="/administation"
           icon={process.env.PUBLIC_URL + "/Icons/administration.svg"}
           text="Administration"
         />
       )}
       <MenuTitle title="Workspaces" />
       {"Client contract".toLowerCase().includes(searchTerm.toLowerCase()) && (
-        <MenuLink link="/home"
+        <MenuLink link="/clientcontract"
           icon={process.env.PUBLIC_URL + "/Icons/house2.svg"}
           text="Client contract"
         />
       )}
       {"supplier contract".toLowerCase().includes(searchTerm.toLowerCase()) && (
-        <MenuLink link="/home"
+        <MenuLink link="/suppliercontract"
           icon={process.env.PUBLIC_URL + "/Icons/pub_dark.png"}
           text="Supplier contract"
         />
       )}
       {"corporate".toLowerCase().includes(searchTerm.toLowerCase()) && (
-        <MenuLink link="/home"
+        <MenuLink link="/corporate"
           icon={process.env.PUBLIC_URL + "/Icons/entities.svg"}
           text="Corporate"
         />
       )}
       {"group norms".toLowerCase().includes(searchTerm.toLowerCase()) && (
-        <MenuLink link="/home"
+        <MenuLink link="/groupnorms"
           icon={process.env.PUBLIC_URL + "/Icons/network.svg"}
           text="Group Norms"
         />
@@ -156,7 +156,7 @@ const DropdownMenu: FC<IRandomNumber> = ({ id }) => {
       {"real estate contracts"
         .toLowerCase()
         .includes(searchTerm.toLowerCase()) && (
-        <MenuLink link="/home"
+        <MenuLink link="/realestatecontract"
           icon={process.env.PUBLIC_URL + "/Icons/administration.svg"}
           text="Real estate contracts"
         />
@@ -166,13 +166,13 @@ const DropdownMenu: FC<IRandomNumber> = ({ id }) => {
         <Account id={id} />
       )}
       {"privacy".toLowerCase().includes(searchTerm.toLowerCase()) && (
-        <MenuLink link="/home"
+        <MenuLink link="/privacy"
           icon={process.env.PUBLIC_URL + "/Icons/privacy.svg"}
           text="Privacy"
         />
       )}
       {"settings".toLowerCase().includes(searchTerm.toLowerCase()) && (
-        <MenuLink link="/home"
+        <MenuLink link="/settings"
           icon={process.env.PUBLIC_URL + "/Icons/settings.svg"}
           text="Settings"
         />

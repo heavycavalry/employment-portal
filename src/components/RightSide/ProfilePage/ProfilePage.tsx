@@ -1,10 +1,16 @@
-import { FC } from "react";
+import { InputLabel, MenuItem, Select } from "@material-ui/core";
+import React, { FC } from "react";
+import { useRouteMatch } from "react-router";
 import styled from "styled-components";
+import { IRandomNumber } from "../../../App";
+import { ISingleUser } from "../../../entities/users";
+import usersReducers from "../../../reducers/usersReducers";
+import { FlexColumn } from "../../common/FlexColumn";
 import { FontAwesome } from "../../common/FontAwesome";
 import { CommonWrapper } from "../../common/ProfilePageSectionWrapper";
 import { CommonContact, MessageLink, TopContactBtns } from "./ContactButtons";
-import { PersonalDataSection } from "./PersonalDataSection";
-import { TileSection, Title } from "./TilesSection";
+import { DataField, PersonalDataSection } from "./PersonalDataSection";
+import { TileBox, TileSection, Title } from "./TilesSection";
 
 const MainContainer = styled.div`
   background-color: white;
@@ -26,7 +32,7 @@ export const DataText = styled.p`
 `;
 
 const BorderBox = styled.div`
-position: relative;
+  position: relative;
   border: 2px solid var(--platinium);
   border-radius: 5px;
   display: flex;
@@ -42,32 +48,33 @@ position: relative;
 `;
 
 const AddFile = styled.input`
-margin-top: 10px;
-&::-webkit-file-upload-button {
-  visibility: hidden;
-}
-&::before {
-  content: 'Choose file';
-  display: inline-block;
-  background: linear-gradient(top, #f9f9f9, #e3e3e3);
-  border: 1px solid #999;
-  border-radius: 3px;
-  padding: 5px 8px;
-  outline: none;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  user-select: none;
-  cursor: pointer;
-  text-shadow: 1px 1px #fff;
-  font-weight: 700;
-  font-size: 10pt;
-}
-&:hover::before {
-  border-color: black;
-}
-&:active::before {
-  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
-}`
+  margin-top: 10px;
+  &::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  &::before {
+    content: "Choose file";
+    display: inline-block;
+    background: linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+  }
+  &:hover::before {
+    border-color: black;
+  }
+  &:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  }
+`;
 
 const SmallImage = styled.img`
   width: 60px;
@@ -91,50 +98,61 @@ const Name = styled.p`
 const PanelWrapper = styled.div`
   ${CommonWrapper};
   flex-direction: column;
-  >p:nth-child(2n) {
+  > :nth-child(2n) {
     margin-bottom: 20px;
   }
 `;
 
 const AtachmentBox = styled.div`
-width: 325px;
-margin-bottom: 20px;
-> div::before {
-  ${FontAwesome}
-  content: "\f15b";
-}`
+  ${FlexColumn}
+  > div::before {
+    ${FontAwesome}
+    content: "\f15b";
+  }
+`;
 
-export const ProfilePage: FC = () => (
+export const ProfilePage: FC<IRandomNumber> = ({ id }) => (
   <MainContainer>
     <TopContactBtns />
-    <PersonalDataSection />
+    <PersonalDataSection id={id} />
     <TileSection />
-    <PanelInformations />
   </MainContainer>
 );
 
-const PanelInformations: FC = () => (
-  <PanelWrapper>
-    <Title>Hourly free</Title>
-    <p>610€/hour (Negociated)</p>
-    <Title>Terms & Conditions</Title>
-    <AtachmentBox>
-      <p>Monthly 10k€ retainer - see with Jeanny Smith</p>{" "}
-      <AddFile id="file" name="file" type="file"></AddFile>
-    </AtachmentBox>
-    <Title>Services & Projects</Title>
-    <p>Corporate M&A and international acquisitions</p>
-    <Title>Internal correspondants</Title>
-    <Corespondant photo="https://www.oneplanetnetwork.org/sites/default/files/profile-leena.jpg" name="Michalina" surname="Durszlak"/>
-    <Corespondant photo="https://simplybeautysydney.files.wordpress.com/2013/01/brad-profile-square.jpg" name="Paul" surname="Wind"/>
-  </PanelWrapper>
+interface IPanelInformation {
+  disable: boolean;
+}
+
+export const PanelInformations: FC<IPanelInformation> = ({
+  disable
+}) => (
+  <>
+    <PanelWrapper>
+      <Title>Hourly free</Title>
+      <DataField disabled={disable} name="fee" type="text"></DataField>
+      <Title>Terms & Conditions</Title>
+      <AtachmentBox>
+        <DataField disabled={disable} name="terms" type="text"></DataField>
+        <AddFile id="file" type="file"></AddFile>
+      </AtachmentBox>
+      <Title>Services & Projects</Title>
+      <DataField disabled={disable} name="services" type="text"></DataField>
+    </PanelWrapper>
+    <FlexDiv>
+      <SmallImage src="" alt="profile" />
+      <FlexDiv>
+        <MessageLink>Message</MessageLink>
+        <ProfileLink>Profile</ProfileLink>
+      </FlexDiv>
+    </FlexDiv>
+  </>
 );
 
 const Corespondant: FC<ICorespondant> = (props) => (
   <BorderBox>
     <FlexDiv>
-      <SmallImage src={props.photo} alt="profile"/>
-      <Name>{props.name} {props.surname}</Name>
+      <SmallImage src={props.photo} alt="profile" />
+      <Name>{props.name}</Name>
     </FlexDiv>
     <FlexDiv>
       <MessageLink>Message</MessageLink>
@@ -144,7 +162,6 @@ const Corespondant: FC<ICorespondant> = (props) => (
 );
 
 interface ICorespondant {
-  photo: string
-  name: string
-  surname: string
+  photo: string;
+  name: string;
 }
