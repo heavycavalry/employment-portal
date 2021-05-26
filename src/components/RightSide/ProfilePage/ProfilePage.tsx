@@ -41,8 +41,37 @@ position: relative;
   }
 `;
 
+const AddFile = styled.input`
+margin-top: 10px;
+&::-webkit-file-upload-button {
+  visibility: hidden;
+}
+&::before {
+  content: 'Choose file';
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+&:hover::before {
+  border-color: black;
+}
+&:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}`
+
 const SmallImage = styled.img`
-  width: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 `;
 const ProfileLink = styled.a`
@@ -91,21 +120,21 @@ const PanelInformations: FC = () => (
     <Title>Terms & Conditions</Title>
     <AtachmentBox>
       <p>Monthly 10k€ retainer - see with Jeanny Smith</p>{" "}
-      <BorderBox>Attachment_veryimportantstuff123.jpg</BorderBox>
+      <AddFile id="file" name="file" type="file"></AddFile>
     </AtachmentBox>
     <Title>Services & Projects</Title>
     <p>Corporate M&A and international acquisitions</p>
     <Title>Internal correspondants</Title>
-    <Corespondant />
-    <Corespondant />
+    <Corespondant photo="https://www.oneplanetnetwork.org/sites/default/files/profile-leena.jpg" name="Michalina" surname="Durszlak"/>
+    <Corespondant photo="https://simplybeautysydney.files.wordpress.com/2013/01/brad-profile-square.jpg" name="Paul" surname="Wind"/>
   </PanelWrapper>
 );
 
-const Corespondant: FC = () => (
+const Corespondant: FC<ICorespondant> = (props) => (
   <BorderBox>
     <FlexDiv>
-      <SmallImage src="https://thispersondoesnotexist.com/image" alt="" />
-      <Name>Firstname Lastname</Name>
+      <SmallImage src={props.photo} alt="profile"/>
+      <Name>{props.name} {props.surname}</Name>
     </FlexDiv>
     <FlexDiv>
       <MessageLink>Message</MessageLink>
@@ -113,3 +142,9 @@ const Corespondant: FC = () => (
     </FlexDiv>
   </BorderBox>
 );
+
+interface ICorespondant {
+  photo: string
+  name: string
+  surname: string
+}

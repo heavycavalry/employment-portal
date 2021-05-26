@@ -1,8 +1,7 @@
-import React, { FC } from "react";
 import styled from "styled-components";
 import { BtnRemoveStyles } from "./BtnRemoveStyles";
 
-const EditBtn = styled.button`
+export const EditBtn = styled.button`
   ${BtnRemoveStyles}
   position: absolute;
   right: 20px;
@@ -15,8 +14,3 @@ const EditBtn = styled.button`
   }
 `;
 
-export const EditButton: FC = () => (
-  <EditBtn>
-    <i className="fas fa-pencil-alt"></i>
-  </EditBtn>
-);
