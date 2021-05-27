@@ -1,15 +1,15 @@
 import { Field, Form, Formik } from "formik";
-import { FC, useState } from "react";
+import React, { FC, useState } from "react";
 import styled from "styled-components";
 import { EditBtn } from "../../common/EditButtonStyles";
 import { CommonWrapper } from "../../common/ProfilePageSectionWrapper";
 import { SeeProfileBtn } from "../../TopBar/DropdownMenu";
-import { FlexDiv } from "./ProfilePage";
 import { FlexColumn } from "../../common/FlexColumn";
 import { useSelector } from "react-redux";
 import { IState } from "../../../reducers";
 import { IUsersReducer } from "../../../reducers/usersReducers";
 import { IRandomNumber } from "../../../App";
+import { FlexDiv } from "./ProfilePage_styles";
 
 const Image = styled.img`
   width: 90px;
@@ -40,8 +40,7 @@ const StyledForm = styled(Form)`
 `;
 export const DataField = styled(Field)<{ disabled: boolean }>`
   border: none;
-  ${({ disabled }) =>
-    disabled ? "min-width: fit-content" : "width: 350px"};
+  ${({ disabled }) => (disabled ? "min-width: fit-content" : "width: 350px")};
   border-bottom: ${({ disabled }) =>
     disabled ? "none" : "1px solid var(--shadowBlue)"};
   background: none;
@@ -59,14 +58,15 @@ export const PersonalDataForm: FC<IRandomNumber> = ({ id }) => {
   }));
   return (
     <Formik
-    enableReinitialize
+      enableReinitialize
       initialValues={{
         name: usersList[id]?.name,
-        street: usersList[id]?.address.street + " " + usersList[id]?.address.suite,
+        street:
+          usersList[id]?.address.street + " " + usersList[id]?.address.suite,
         city: usersList[id]?.address.city,
         position: "Partner",
         mail: usersList[id]?.email,
-        phone: usersList[id]?.phone
+        phone: usersList[id]?.phone,
       }}
       onSubmit={(data, { setSubmitting }) => {
         setSubmitting(true);

@@ -1,56 +1,19 @@
-import { InputLabel, MenuItem, Select } from "@material-ui/core";
-import { Formik, setNestedObjectValues } from "formik";
+import { MenuItem } from "@material-ui/core";
+import { Formik } from "formik";
 import React from "react";
 import { FC } from "react";
-import { useSelector } from "react-redux";
-import styled from "styled-components";
-import { IState } from "../../../reducers";
-import { IUsersReducer } from "../../../reducers/usersReducers";
-import { BtnRemoveStyles } from "../../common/BtnRemoveStyles";
 import { EditBtn } from "../../common/EditButtonStyles";
-import { CommonWrapper } from "../../common/ProfilePageSectionWrapper";
-import { FlexDiv, PanelInformations } from "./ProfilePage";
+import { PanelInformations } from "./PanelInformations";
+import { FlexDiv, InfoWrapper, TileBox, Title } from "./ProfilePage_styles";
 
-const InfoWrapper = styled.div`
-  ${CommonWrapper};
-  flex-direction: column;
-  position: relative;
-`;
-
-export const Title = styled(InputLabel)`
-  color: var(--blue) !important;
-  font-weight: bold !important;
-  margin-bottom: 10px;
-`;
-export const TileBox = styled(Select)<{ disabled: boolean }>`
-  > svg {
-    display: ${({ disabled }) => (disabled ? "none" : "block")};
-  }
-  background-color: var(--shadowBlue);
-  border-radius: 5px;
-  width: fit-content;
-  padding: 2px 5px;
-  color: var(--blue) !important;
-  font-weight: bold !important;
-  margin: 0px 10px 20px 0;
-  &:hover {
-    border: none;
-  }
-`;
-
-export const TileSection: FC = () => {
-  const { usersList } = useSelector<IState, IUsersReducer>((globalState) => ({
-    ...globalState.users,
-  }));
+export const FormSection: FC = () => {
   const [isDisabled, setEdit] = React.useState(true);
   const [expertise, setExpertise] = React.useState("Mergers and acquisition");
   const [speciality, setSpeciality] = React.useState("Cross border operation");
   const [transaction, setTransaction] = React.useState("1000");
-
   const [country, setCountry] = React.useState("Poland");
   const [admission, setAdmission] = React.useState("German");
   const [secondAdmission, setSecondAdmission] = React.useState("Tunisian");
-  const [user, setUser] = React.useState("Klaudia");
   const handleExperiseChange = (event: any) => {
     setExpertise(event.target.value);
   };
@@ -69,10 +32,7 @@ export const TileSection: FC = () => {
   const handleAdmissionChange = (event: any) => {
     setAdmission(event.target.value);
   };
-  const handleUserChange = (event: any) => {
-    setUser(event.target.value);
-  };
-  const users = usersList.map((user) => user["name"]);
+
   return (
     <Formik
       enableReinitialize
@@ -93,12 +53,10 @@ export const TileSection: FC = () => {
         fee: "610€/hour(Negociated)",
         terms: "Monthly 10k€ retainer - see with Jeanny Smith",
         services: "Corporate M&A and international acquisitions",
-        userNames : users,
-        userName: user
       }}
       onSubmit={() => {}}
     >
-      {({ values, initialValues}) => (
+      {({ values, initialValues }) => (
         <>
           <InfoWrapper>
             <Title id="label">Expertise</Title>
@@ -183,7 +141,7 @@ export const TileSection: FC = () => {
               <i className="fas fa-pencil-alt"></i>
             </EditBtn>
           </InfoWrapper>
-          <PanelInformations disable={isDisabled}/>
+          <PanelInformations disable={isDisabled} />
         </>
       )}
     </Formik>
