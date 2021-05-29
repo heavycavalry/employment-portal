@@ -8,4 +8,4 @@ Working links:
 Additional functionality:
    - Main page/Publications pagination and filters Resume Titles
    - Filter in Menu and Entities
-   - Entities expand and filters (static)
+   - Entities expand and filters (static), top buttons Mosaic/Linear display
