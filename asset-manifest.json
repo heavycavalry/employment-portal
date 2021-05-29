@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/employment-portal/static/css/main.817c3b73.chunk.css",
+    "main.js": "/employment-portal/static/js/main.5f99ea45.chunk.js",
+    "main.js.map": "/employment-portal/static/js/main.5f99ea45.chunk.js.map",
+    "runtime-main.js": "/employment-portal/static/js/runtime-main.cd175ef9.js",
+    "runtime-main.js.map": "/employment-portal/static/js/runtime-main.cd175ef9.js.map",
+    "static/js/2.bb9e12ed.chunk.js": "/employment-portal/static/js/2.bb9e12ed.chunk.js",
+    "static/js/2.bb9e12ed.chunk.js.map": "/employment-portal/static/js/2.bb9e12ed.chunk.js.map",
+    "index.html": "/employment-portal/index.html",
+    "static/css/main.817c3b73.chunk.css.map": "/employment-portal/static/css/main.817c3b73.chunk.css.map",
+    "static/js/2.bb9e12ed.chunk.js.LICENSE.txt": "/employment-portal/static/js/2.bb9e12ed.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cd175ef9.js",
+    "static/js/2.bb9e12ed.chunk.js",
+    "static/css/main.817c3b73.chunk.css",
+    "static/js/main.5f99ea45.chunk.js"
+  ]
+}
