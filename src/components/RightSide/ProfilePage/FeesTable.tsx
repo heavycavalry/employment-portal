@@ -81,53 +81,6 @@ export const Fees: FC<IDisable> = ({ disable }) => {
                   id="select"
                   onChange={handleFirm}
                 >
-                  {values.firms.map((value) => (
-                    <MenuItem value={value}>{value}</MenuItem>
-                  ))}
-                </StyledPlainSelect>
-                <StyledPlainSelect
-                  disabled={disable}
-                  value={year}
-                  labelId="label"
-                  id="select"
-                  onChange={handleYear}
-                >
-                  {values.years.map((value) => (
-                    <MenuItem value={value}>{value}</MenuItem>
-                  ))}
-                </StyledPlainSelect>
-                <StyledPlainSelect
-                  disabled={disable}
-                  value={cost}
-                  labelId="label"
-                  id="select"
-                  onChange={handleCost}
-                >
-                  {values.costs.map((value) => (
-                    <MenuItem value={value}>{value}</MenuItem>
-                  ))}
-                </StyledPlainSelect>
-                <StyledPlainSelect
-                  disabled={disable}
-                  value={amount}
-                  labelId="label"
-                  id="select"
-                  onChange={handleAmount}
-                >
-                  {values.amounts.map((value) => (
-                    <MenuItem value={value}>{value}</MenuItem>
-                  ))}
-                </StyledPlainSelect>
-                <StyledPlainSelect
-                  disabled={disable}
-                  value={firm}
-                  labelId="label"
-                  id="select"
-                  onChange={handleFirm}
-                >
-                  {values.firms.map((value) => (
-                    <MenuItem value={value}>{value}</MenuItem>
-                  ))}
                 </StyledPlainSelect>
               </>
             )}

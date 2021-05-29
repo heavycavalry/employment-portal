@@ -57,7 +57,6 @@ background-color: white;
 max-width: 60em;
 margin: 0px auto;
 border-radius: 5px;
-margin-bottom: 500px;
 `;
 
 export const FlexDiv = styled.div`

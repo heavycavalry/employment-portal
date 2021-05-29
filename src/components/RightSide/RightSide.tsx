@@ -11,7 +11,6 @@ import { ProfilePage } from "./ProfilePage/ProfilePage";
 const Wrapper = styled.div`
   margin: 3em 2em;
   width: 100%;
-  height: 100vh;
   @media (max-width: 900px) {
     margin: 0;
   }
