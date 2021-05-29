@@ -45,9 +45,11 @@ a {
 
 button {
     font-family: var(--Lato);
-    color: rgb(97, 97, 97);
+    color: var(--blue);
     cursor: pointer;
     border: none;
+    background: none;
+    font-weight: bold;
 }
 
 button::before {

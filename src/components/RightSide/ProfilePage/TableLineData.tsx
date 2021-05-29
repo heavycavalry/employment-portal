@@ -1,59 +1,24 @@
 import { MenuItem } from "@material-ui/core";
 import { Formik } from "formik";
-import React, { useState } from "react";
-import { FC } from "react";
+import React, { FC, useState } from "react";
 import { IDisable } from "./ProfilePage";
-import { DateField, GridTable, StyledPlainSelect, Title } from "./ProfilePage_styles";
+import { DateField, StyledPlainSelect } from "./ProfilePage_styles";
 
-export interface IProposal {
+export interface ITableLineData {
     name: string;
     entity: string;
     location: string;
     expertise: string;
     firm?: string;
   }
-  
-export const Proposals: FC<IDisable> = ({ disable }) => {
-    return (
-      <>
-      <Title>Proposals</Title>
-      <GridTable>
-        <Title>Name</Title>
-        <Title>Entity</Title>
-        <Title>Location</Title>
-        <Title>Expertise</Title>
-        <Title>Date</Title>
-        <Title>Firm</Title>
-        <ProposalLine
-          name="Operation Time"
-          entity="Renault Corsa"
-          location="France"
-          expertise="Tax"
-          firm="Racine"
-          disable={disable}
-        />
-        <ProposalLine
-          name="Op. Promethan"
-          entity="Mazda"
-          location="USA"
-          expertise="M&A"
-          firm="SVZ"
-          disable={disable}
-        />
-        <ProposalLine
-          name="Op. Promethan"
-          entity="Mazda"
-          location="USA"
-          expertise="M&A"
-          firm="SVZ"
-          disable={disable}
-        />
-      </GridTable>
-      </>
-    );
-  };
 
-  const ProposalLine: FC<IDisable & IProposal> = ({
+export interface IShowColumn{
+    show: string;
+  }
+  
+
+export const TableDataLine: FC<IDisable & ITableLineData & IShowColumn> = ({
+    show,
     disable,
     name,
     entity,
@@ -61,11 +26,11 @@ export const Proposals: FC<IDisable> = ({ disable }) => {
     expertise,
     firm,
   }) => {
-    const [nameValue, setName] = React.useState(name);
-    const [entityValue, setEntity] = React.useState(entity);
-    const [locationValue, setLocation] = React.useState(location);
-    const [expertiseValue, setExpertise] = React.useState(expertise);
-    const [firmValue, setFirm] = React.useState(firm);
+    const [nameValue, setName] = useState(name);
+    const [entityValue, setEntity] = useState(entity);
+    const [locationValue, setLocation] = useState(location);
+    const [expertiseValue, setExpertise] = useState(expertise);
+    const [firmValue, setFirm] = useState(firm);
     const [startDate, setStartDate] = useState();
   
     const handleDate = (event: any) => {
@@ -157,6 +122,7 @@ export const Proposals: FC<IDisable> = ({ disable }) => {
               type="date"
             />
             <StyledPlainSelect
+              className={show}
               disabled={disable}
               value={firmValue}
               labelId="label"

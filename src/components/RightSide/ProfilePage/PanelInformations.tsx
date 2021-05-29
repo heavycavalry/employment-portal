@@ -1,9 +1,11 @@
 import React, { FC } from "react";
 import { Corespondant } from "./Corespondants";
+import { Fees } from "./FeesTable";
+import { InternalReviews } from "./InternalReviewsTable";
 import { DataField } from "./PersonalDataSection";
 import { IDisable } from "./ProfilePage";
 import { AddFile, AtachmentBox, PanelWrapper, Title } from "./ProfilePage_styles";
-import { Proposals } from "./Proposals";
+import { Proposals } from "./ProposalsTable";
 
 export const PanelInformations: FC<IDisable> = ({ disable }) => (
     <>
@@ -30,9 +32,9 @@ export const PanelInformations: FC<IDisable> = ({ disable }) => (
           disable={disable}
         />
       </PanelWrapper>
-      <PanelWrapper>
         <Proposals disable={disable} />
-        </PanelWrapper>
+        <InternalReviews show="hide" disable={disable} />
+        <Fees disable={disable}/>
     </>
   );
   

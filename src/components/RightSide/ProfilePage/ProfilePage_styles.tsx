@@ -55,8 +55,9 @@ export const CloseBtn = styled.button`
 export const MainContainer = styled.div`
 background-color: white;
 max-width: 60em;
-margin: 0 auto;
+margin: 0px auto;
 border-radius: 5px;
+margin-bottom: 500px;
 `;
 
 export const FlexDiv = styled.div`
@@ -181,6 +182,14 @@ grid-template-rows: auto;
 grid-gap: 10px;
 `;
 
+export const GridTableReviews = styled.div`
+padding: 20px 0;
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-gap: 10px;
+
+`
+
 
 export const DateField = styled(Field)`
 background: none;
@@ -218,3 +227,15 @@ export const TileBox = styled(Select)<{ disabled: boolean }>`
     border: none;
   }
 `;
+
+export const TableButton = styled.button`
+/* ${BtnRemoveStyles} */
+display: flex;
+justify-content: flex-end;
+`
+export const FeesGrid = styled.div`
+padding: 20px 0;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-gap: 10px;
+`

@@ -2,9 +2,11 @@ import { MenuItem } from "@material-ui/core";
 import { Formik } from "formik";
 import React from "react";
 import { FC } from "react";
+import styled from "styled-components";
 import { EditBtn } from "../../common/EditButtonStyles";
 import { PanelInformations } from "./PanelInformations";
 import { FlexDiv, InfoWrapper, TileBox, Title } from "./ProfilePage_styles";
+
 
 export const FormSection: FC = () => {
   const [isDisabled, setEdit] = React.useState(true);
@@ -147,3 +149,4 @@ export const FormSection: FC = () => {
     </Formik>
   );
 };
+
