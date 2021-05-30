@@ -42,18 +42,26 @@ const RightSide: FC<IRandomNumber> = ({ id }) => {
           <Administration />
         </Route>
         <Route path="/clientcontract">
-        <WorkspacesPage
+          <WorkspacesPage
+            icon="\f2b5"
             title="Client Contract"
-            description="Workspaces purpose and a bit of context. This much needed description is here to remind people where they are, if they are new or have poor memory."
+            description="I often say to prospective clients, 'Nothing will age faster than your hardware.' Even the thinnest touch screen will look like a toaster oven in a number of years. - Jake Barton"
             image={process.env.PUBLIC_URL + "/Images/contract.jpg"}
             id={id}
           />
         </Route>
         <Route path="/suppliercontract">
-          <SupplierContact />
+          <WorkspacesPage
+            icon="\f2b5"
+            title="Supplier Contract"
+            description="More and more companies are reaching out to their suppliers and contractors to work jointly on issues of sustainability, environmental responsibility, ethics, and compliance. - Simon Mainwaring"
+            image={process.env.PUBLIC_URL + "/Images/supplier.jpg"}
+            id={id}
+          />
         </Route>
         <Route path="/corporate">
           <WorkspacesPage
+            icon="\f1ad"
             title="Corporate Holdings"
             description="Workspaces purpose and a bit of context. This much needed description is here to remind people where they are, if they are new or have poor memory."
             image={process.env.PUBLIC_URL + "/Images/corporate.jpg"}
@@ -61,7 +69,13 @@ const RightSide: FC<IRandomNumber> = ({ id }) => {
           />
         </Route>
         <Route path="/groupnorms">
-          <GroupNorms />
+          <WorkspacesPage
+            icon="\f0c0"
+            title="Group Norms"
+            description="As you navigate through the rest of your life, be open to collaboration. Other people and other people's ideas are often better than your own. Find a group of people who challenge and inspire you, spend a lot of time with them, and it will change your life. - Amy Poehler"
+            image={process.env.PUBLIC_URL + "/Images/norms.jpg"}
+            id={id}
+          />
         </Route>
         <Route path="/realestatecontract">
           <RealEstateContracts />
@@ -85,7 +99,7 @@ const PublicationsPage: FC<IRandomNumber> = ({ id }) => {
     <>
       <Publications id={id} />
       <Workspaces />
-      <Resume id={id} />
+      <Resume title="Resume your work" id={id} />
     </>
   );
 };

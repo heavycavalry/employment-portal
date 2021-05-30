@@ -27,7 +27,6 @@ const MainContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 100px;
   @media (max-width: 1250px) {
     flex-wrap: wrap;
     justify-content: center;

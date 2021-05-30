@@ -13,7 +13,7 @@ body {
 }
 
 :root {
-    --opacityWhite: rgba(255, 255, 255, 0.644);
+    --opacityWhite: rgba(255, 255, 255, 0.801);
     --richBlack: #0d1b2a;
     --oxfordBlue: #1b263b;
     --blue: #415a77;

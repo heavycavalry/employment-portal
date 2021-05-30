@@ -29,10 +29,10 @@ const AbsoluteDiv = styled.div`
   bottom: 0;
 `;
 
-const TextDiv = styled.div`
+const TextDiv = styled.div<{ mainicon: string }>`
   &:before {
     ${FontAwesome}
-    content: "\f1ad";
+    content: '${({ mainicon }) => mainicon}';
     font-size: 4.5rem;
     margin: 0 50px;
     float: left;
@@ -65,50 +65,63 @@ interface IWorkspacesProps {
   title: string;
   description: string;
   image: string;
+  icon: string;
 }
 
 export const WorkspacesPage: FC<IWorkspacesProps & IRandomNumber> = ({
   id,
   image,
+  icon,
   title,
   description,
 }) => (
   <>
-      <ImageDiv>
-        <Image src={image} alt="" />
-        <AbsoluteDiv>
-          <TextDiv>
-            <WorspacesTitle>{title}</WorspacesTitle>
-            <WorkspacesText>{description}</WorkspacesText>
-          </TextDiv>
-        </AbsoluteDiv>
-      </ImageDiv>
-      <SpaceBetweenDiv>
-        <Title>Start working on corporate matters</Title>
-        <Button>Hide</Button>
-      </SpaceBetweenDiv>
-      <WorkspacesBoxes />
-    <Resume id={id} />
+    <ImageDiv>
+      <Image src={image} alt="" />
+      <AbsoluteDiv>
+        <TextDiv mainicon={icon}>
+          <WorspacesTitle>{title}</WorspacesTitle>
+          <WorkspacesText>{description}</WorkspacesText>
+        </TextDiv>
+      </AbsoluteDiv>
+    </ImageDiv>
+    <SpaceBetweenDiv>
+      <Title>Start working on corporate matters</Title>
+      <Button>Hide</Button>
+    </SpaceBetweenDiv>
+    <WorkspacesBoxes />
+    <Resume title="Latest Updates" id={id} />
   </>
 );
 
-const FlexSpaceDiv = styled(FlexDiv)`
-justify-content: space-between;
-`
 
-const BoxDiv = styled.div`
-${WhiteBgShadowBox}
-text-align: justify;
-width: 280px;
-padding: 20px;
-`
-
-const BoxTitle = styled.h3<{ beforeimg: string }>`
+const BoxDiv = styled.div<{ beforeimg: string }>`
+  ${WhiteBgShadowBox}
+  font-size: 1.2rem;
+  position: relative;
+  text-align: justify;
+  padding: 20px;
+  margin: 20px;
   ::before {
     ${FontAwesome}
     content: '${({ beforeimg }) => beforeimg}';
     font-size: 3rem;
   }
+  ::after {
+    ${FontAwesome}
+    position: absolute;
+    content: "${({ beforeimg }) => beforeimg}";
+    font-size: 7rem;
+    right: 20px;
+    top: 30px;
+    opacity: 0.2;
+  }
+`;
+
+const BoxTitle = styled.h3`
+color: var(--blue);
+font-size: 1.2rem;
+padding: 10px 0;
 `;
 
 const WorkspacesBoxes: FC = () => {
@@ -133,13 +146,13 @@ const WorkspacesBoxes: FC = () => {
     },
   ];
   return (
-    <FlexSpaceDiv>
+    <FlexDiv>
       {boxData.map((value) => (
-        <BoxDiv>
-          <BoxTitle beforeimg={value.icon}>{value.title}</BoxTitle>
+        <BoxDiv beforeimg={value.icon}>
+          <BoxTitle >{value.title}</BoxTitle>
           <p>{value.description}</p>
         </BoxDiv>
       ))}
-    </FlexSpaceDiv>
+    </FlexDiv>
   );
 };

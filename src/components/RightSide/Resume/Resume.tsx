@@ -15,7 +15,11 @@ import {
 import { InfoBox, TileBox, TileText, TileTitle } from "./Resume_styles";
 
 
-export const Resume: FC<IRandomNumber> = ({ id }: any) => {
+interface IComentsTopTitle {
+  title: string
+}
+
+export const Resume: FC<IRandomNumber & IComentsTopTitle> = ({ id, title }: any) => {
   const { commentsList } = useSelector<IState, IUsersReducer>(
     (globalState) => ({
       ...globalState.users,
@@ -59,7 +63,7 @@ export const Resume: FC<IRandomNumber> = ({ id }: any) => {
   return (
     <>
       <SpaceBetweenDiv>
-        <Title>Resume your work</Title>
+        <Title>{title}</Title>
         <Container>
           <Input
             type="text"
@@ -89,3 +93,4 @@ export const Resume: FC<IRandomNumber> = ({ id }: any) => {
     </>
   );
 };
+
