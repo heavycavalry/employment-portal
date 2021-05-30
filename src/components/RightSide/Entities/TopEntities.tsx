@@ -2,8 +2,7 @@ import {FC} from 'react'
 import styled from 'styled-components'
 import { entitiesTileArray } from './Entities';
 
-export const Wrapper = styled.div`
-margin: 10px 0;
+export const SpaceBetweenDiv = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
@@ -56,14 +55,14 @@ const Icon = styled.i`
 
 export const TopEntities: FC = () => {
     return (
-        <Wrapper>
+        <SpaceBetweenDiv>
         <Title>Entities</Title>
         <Icon></Icon>
         <BtnBox>
             <MosaicBtn className="mosaic-btn" onClick={SetMosaic}>Mosaic</MosaicBtn>
             <ListBtn className="list-btn" onClick={SetList}></ListBtn>
         </BtnBox>
-        </Wrapper>
+        </SpaceBetweenDiv>
     
     )
 }

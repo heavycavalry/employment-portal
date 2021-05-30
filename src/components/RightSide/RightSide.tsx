@@ -1,9 +1,9 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 import Publications from "./Publications/Publications";
 import { Switch, Route } from "react-router-dom";
 import { Entities } from "../RightSide/Entities/Entities";
-import { Workspaces } from "./Workspaces/Workspaces";
+import { Workspaces, WorkspacesPage } from "./Workspaces/Workspaces";
 import { Resume } from "./Resume/Resume";
 import { IRandomNumber } from "../../App";
 import { ProfilePage } from "./ProfilePage/ProfilePage";
@@ -30,7 +30,7 @@ const RightSide: FC<IRandomNumber> = ({ id }) => {
           <Entities />
         </Route>
         <Route path="/profile">
-          <ProfilePage id={id}/>
+          <ProfilePage id={id} />
         </Route>
         <Route path="/network">
           <Network />
@@ -42,13 +42,23 @@ const RightSide: FC<IRandomNumber> = ({ id }) => {
           <Administration />
         </Route>
         <Route path="/clientcontract">
-          <ClientContact />
+        <WorkspacesPage
+            title="Client Contract"
+            description="Workspaces purpose and a bit of context. This much needed description is here to remind people where they are, if they are new or have poor memory."
+            image={process.env.PUBLIC_URL + "/Images/contract.jpg"}
+            id={id}
+          />
         </Route>
         <Route path="/suppliercontract">
           <SupplierContact />
         </Route>
         <Route path="/corporate">
-          <Corporate />
+          <WorkspacesPage
+            title="Corporate Holdings"
+            description="Workspaces purpose and a bit of context. This much needed description is here to remind people where they are, if they are new or have poor memory."
+            image={process.env.PUBLIC_URL + "/Images/corporate.jpg"}
+            id={id}
+          />
         </Route>
         <Route path="/groupnorms">
           <GroupNorms />
@@ -92,26 +102,20 @@ const People = () => {
 const Administration = () => {
   return <h1>ADMINISTRATION</h1>;
 };
-const ClientContact = () => {
-  return <h1>CLIENT CONTACT</h1>; //TODO
-};
 const SupplierContact = () => {
   return <h1>SUPPLIER CONTACT</h1>; //TODO
 };
-const Corporate = () => {
-  return <h1>CORPORATE</h1>; //TODO
-};
 const GroupNorms = () => {
-  return <h1>GROUP NORMS</h1> //TODO
-}
+  return <h1>GROUP NORMS</h1>; //TODO
+};
 const RealEstateContracts = () => {
-  return <h1>RealEstateContracts</h1>
-}
+  return <h1>RealEstateContracts</h1>;
+};
 const Privacy = () => {
-  return <h1>Privacy</h1>
-}
+  return <h1>Privacy</h1>;
+};
 const Settings = () => {
-  return <h1>Settings</h1>
-}
+  return <h1>Settings</h1>;
+};
 
 export default RightSide;

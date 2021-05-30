@@ -3,9 +3,9 @@ import {
   SliderBoxItem,
   Image,
   TextBox,
-  BigText,
   MediumText,
   SmallText,
+  WorspacesLink,
 } from "../../../styledComponents/Workspaces_styled";
 
 interface ISliderItem {
@@ -20,7 +20,7 @@ export const SliderItem: FC<ISliderItem> = (props) => {
     <SliderBoxItem>
       <Image src={props.imageUrl} alt="" />
       <TextBox>
-        <BigText>{props.title}</BigText>
+        <WorspacesLink to="\">{props.title}</WorspacesLink>
         <div></div>
         <div>
           <MediumText>

@@ -21,6 +21,18 @@ export const Fees: FC<IDisable> = ({ disable }) => {
     const handleFirm = (event: any) => {
       setFirm(event.target.value);
     };
+    const Fields = [{
+      value: year,
+      handler: handleYear
+    }];
+
+    const Data = {
+      years: ["2020", "2019", "2018", "2017"],
+      costs: ["153", "47", "153", "32"],
+      amounts: ["3 500$", "2 500$", "1 500$", "1 000$"],
+      firms: ["Clifford chance", "Linklaters", "Opafity"],
+    }
+
     return (
       <PanelWrapper>
         <Title>Amount of fees</Title>
@@ -31,12 +43,7 @@ export const Fees: FC<IDisable> = ({ disable }) => {
           <Title>Law Firm</Title>
           <Formik
             enableReinitialize
-            initialValues={{
-              years: ["2020", "2019", "2018", "2017"],
-              costs: ["153", "47", "153", "32"],
-              amounts: ["3 500$", "2 500$", "1 500$", "1 000$"],
-              firms: ["Clifford chance", "Linklaters", "Opafity"],
-            }}
+            initialValues={Data}
             onSubmit={() => {}}
           >
             {({ values }) => (

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 export const Title = styled.h2`
@@ -52,5 +53,7 @@ export const MediumText = styled.p`
 font-size: 0.9rem;
 padding: 2px 0;
 `
-export const BigText = styled.h3`
-text-transform: uppercase;`
+export const WorspacesLink = styled(Link)`
+text-transform: uppercase;
+color: var(--blue);
+font-weight: bold;`

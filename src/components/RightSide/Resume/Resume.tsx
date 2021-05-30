@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { IState } from "../../../reducers";
 import { IUsersReducer } from "../../../reducers/usersReducers";
 import ReactPaginate from "react-paginate";
-import { Wrapper } from "../Entities/TopEntities";
+import { SpaceBetweenDiv } from "../Entities/TopEntities";
 import {
   Container,
   FollowedDropdown,
@@ -58,7 +58,7 @@ export const Resume: FC<IRandomNumber> = ({ id }: any) => {
 
   return (
     <>
-      <Wrapper>
+      <SpaceBetweenDiv>
         <Title>Resume your work</Title>
         <Container>
           <Input
@@ -71,7 +71,7 @@ export const Resume: FC<IRandomNumber> = ({ id }: any) => {
           <SearchIcon className="fas fa-search"></SearchIcon>
           <FollowedDropdown className="whiteBtn">Followed</FollowedDropdown>
         </Container>
-      </Wrapper>
+      </SpaceBetweenDiv>
       {displayComments}
       <ReactPaginate
         previousLabel={<i className="fas fa-chevron-left"></i>}

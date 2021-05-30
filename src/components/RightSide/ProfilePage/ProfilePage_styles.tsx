@@ -144,6 +144,7 @@ margin: 10px;
 
 export const PanelWrapper = styled.div`
 ${CommonWrapper};
+background: white;
 flex-direction: column;
 > :nth-child(2n) {
   margin-bottom: 20px;
