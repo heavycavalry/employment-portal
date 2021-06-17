@@ -1,8 +1,5 @@
 import React, { FC } from "react";
-import {
-  InnerSlider,
-  MainSlider,
-} from "../../../styledComponents/Workspaces_styled";
+import { InnerSlider, MainSlider } from "./Workspaces_styles";
 import { SliderItem } from "./SliderItem";
 
 export const Slider: FC = () => {
@@ -16,28 +13,28 @@ export const Slider: FC = () => {
     >
       <InnerSlider className="inner-slider">
         <SliderItem
-          imageUrl="https://i.picsum.photos/id/2/200/200.jpg?hmac=isSWZUpv7D1D156XcADPOCZlfCG9mmvb8OlXFdvLdK0"
+          imageUrl={process.env.PUBLIC_URL + "/Images/contract-sqr.jpg"}
           title="Client contract"
           type="Contract"
           usersNumber="54"
         />
         <SliderItem
-          imageUrl="https://i.picsum.photos/id/948/200/200.jpg?hmac=h64Z3zl6jLB_DtaWe83fhSQY-r_Sum7pndIJrZZ9rtQ"
-          title="Supplier contract"
-          type="Contract"
-          usersNumber="12"
+          imageUrl={process.env.PUBLIC_URL + "/Images/norms-sqr.jpg"}
+          title="Group norms"
+          type="Group norms"
+          usersNumber="48"
         />
         <SliderItem
-          imageUrl="https://i.picsum.photos/id/1048/200/200.jpg?hmac=W94UjOBeBuqxyKnyhht4a81ruXiXHpjQxvdZtNgGyow"
+          imageUrl={process.env.PUBLIC_URL + "/Images/corporate-sqr.jpg"}
           title="Corporate"
           type="Corporate"
           usersNumber="25"
         />
         <SliderItem
-          imageUrl="https://i.picsum.photos/id/160/200/200.jpg?hmac=0fql9ogVWlCf8ddvQCF-vGiiso9i0m0A68TP5De28tI"
-          title="Group norms"
-          type="Group norms"
-          usersNumber="48"
+          imageUrl={process.env.PUBLIC_URL + "/Images/supplier-sqr.jpg"}
+          title="Supplier contract"
+          type="Contract"
+          usersNumber="12"
         />
       </InnerSlider>
     </MainSlider>

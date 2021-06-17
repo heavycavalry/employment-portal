@@ -7,6 +7,7 @@ color: var(--darkGray);
 text-transform: uppercase;`
 
 export const MainSlider = styled.div`
+z-index: 0;
 position: absolute;
 background-color:rgba(255,255,255,0.5);
 width: 70%;
@@ -28,7 +29,7 @@ pointer-events: none;
 `
 export const SliderBoxItem = styled.div`
 position: relative;
-min-width: 300px;
+width: 330px;
 height: 330px;
 margin: 10px 20px;
 background-color: white;
@@ -54,6 +55,7 @@ font-size: 0.9rem;
 padding: 2px 0;
 `
 export const WorspacesLink = styled(Link)`
+z-index: 1;
 text-transform: uppercase;
 color: var(--blue);
 font-weight: bold;`

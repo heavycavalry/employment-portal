@@ -1,14 +1,12 @@
 import { Button } from "@material-ui/core";
 import React, { FC } from "react";
-import styled, { ThemeProvider } from "styled-components";
-import { StringLiteralLike } from "typescript";
+import styled from "styled-components";
 import { IRandomNumber } from "../../../App";
-import { Title, Wrapper } from "../../../styledComponents/Workspaces_styled";
+import { Title, Wrapper } from "./Workspaces_styles";
 import { FontAwesome } from "../../common/FontAwesome";
-import { CommonWrapper } from "../../common/ProfilePageSectionWrapper";
 import { WhiteBgShadowBox } from "../../common/WhiteBgShadowBox";
-import { SpaceBetweenDiv } from "../Entities/TopEntities";
-import { FlexDiv, PanelWrapper } from "../ProfilePage/ProfilePage_styles";
+import { SpaceBetweenDiv } from "../Entities/Entities_styles";
+import { FlexDiv } from "../ProfilePage/ProfilePage_styles";
 import { Resume } from "../Resume/Resume";
 import { Slider } from "./Slider";
 

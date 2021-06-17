@@ -1,11 +1,11 @@
 import React, { FC, useState } from "react";
-import { Title } from "../../../styledComponents/Workspaces_styled";
+import { Title } from "../Workspaces/Workspaces_styles";
 import { IRandomNumber } from "../../../App";
 import { useSelector } from "react-redux";
 import { IState } from "../../../reducers";
 import { IUsersReducer } from "../../../reducers/usersReducers";
 import ReactPaginate from "react-paginate";
-import { SpaceBetweenDiv } from "../Entities/TopEntities";
+import { SpaceBetweenDiv } from "../Entities/Entities_styles";
 import {
   Container,
   FollowedDropdown,

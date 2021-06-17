@@ -6,7 +6,7 @@ import {
   MediumText,
   SmallText,
   WorspacesLink,
-} from "../../../styledComponents/Workspaces_styled";
+} from "./Workspaces_styles";
 
 interface ISliderItem {
   imageUrl: string;
@@ -20,7 +20,9 @@ export const SliderItem: FC<ISliderItem> = (props) => {
     <SliderBoxItem>
       <Image src={props.imageUrl} alt="" />
       <TextBox>
-        <WorspacesLink to={"/" + props.title.toLowerCase().replace(/\s/g, "")}>{props.title}</WorspacesLink>
+        <WorspacesLink to={"/" + props.title.toLowerCase().replace(/\s/g, "")}>
+          {props.title}
+        </WorspacesLink>
         <div>
           <MediumText>
             {props.type} • {props.usersNumber} users

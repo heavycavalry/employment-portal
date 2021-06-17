@@ -18,31 +18,31 @@ const defaultState = (): IUsersReducer => ({
 export default (state = defaultState(), action:any) => {
     switch (action.type) {
         case actionTypes.GET_USERS: {
-            const paylod: actionTypes.IUserTypes['GET_USERS'] = action;
+            const payload: actionTypes.IUserTypes['GET_USERS'] = action;
             return {
                 ...state,
-                usersList: paylod.usersList
+                usersList: payload.usersList
             }
         }
         case actionTypes.GET_PHOTO: {
-            const paylod: actionTypes.IUserTypes['GET_PHOTO'] = action;
+            const payload: actionTypes.IUserTypes['GET_PHOTO'] = action;
             return {
                 ...state,
-                photosList: paylod.photosList
+                photosList: payload.photosList
             }
         }
         case actionTypes.GET_POST: {
-            const paylod: actionTypes.IUserTypes['GET_POST'] = action;
+            const payload: actionTypes.IUserTypes['GET_POST'] = action;
             return {
                 ...state,
-                postsList: paylod.postsList
+                postsList: payload.postsList
             }
         }
         case actionTypes.GET_COMMENT: {
-            const paylod: actionTypes.IUserTypes['GET_COMMENT'] = action;
+            const payload: actionTypes.IUserTypes['GET_COMMENT'] = action;
             return {
                 ...state,
-                commentsList: paylod.commentsList
+                commentsList: payload.commentsList
             }
         }
 
